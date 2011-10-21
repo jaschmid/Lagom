@@ -34,9 +34,9 @@ LagomActor::~LagomActor()
 	if(_btRigidBody)
 	{
 		//delete _btConstraint;
-		delete _btRigidBody;
-		delete _btCollisionShape;
-		delete _btDefaultMotionState;
+		alignedFree(_btRigidBody);
+		alignedFree(_btCollisionShape);
+		alignedFree(_btDefaultMotionState);
 	}
 
 	if(_sceneNode)
@@ -163,9 +163,9 @@ void LagomActor::CreateRigidBody()
 	
 	_rigidBodyOffset = box.getCenter();
 
-	_btCollisionShape = new btCylinderShape(btVector3(width,height,width));
+	_btCollisionShape = new (alignedMalloc<btCylinderShape>()) btCylinderShape(btVector3(width,height,width));
 	_btDefaultMotionState =
-		new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),Ogre2Bullet(_startingPosition + _rigidBodyOffset + Ogre::Vector3(0.0f,height,0.0f))));
+		new (alignedMalloc<btDefaultMotionState>()) btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),Ogre2Bullet(_startingPosition + _rigidBodyOffset + Ogre::Vector3(0.0f,height,0.0f))));
 
 	btScalar mass = 1;
     btVector3 fallInertia(0,0,0);
@@ -173,7 +173,9 @@ void LagomActor::CreateRigidBody()
 
 	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI(mass,_btDefaultMotionState,_btCollisionShape,fallInertia);
 
-	_btRigidBody = new btRigidBody(rigidBodyCI);
+	_btRigidBody = new (alignedMalloc<btRigidBody>()) btRigidBody(rigidBodyCI);
+
+	assert((int)_btRigidBody % 16 == 0);
 	_btRigidBody->setActivationState(DISABLE_DEACTIVATION);
 }
 

@@ -38,9 +38,9 @@ LagomPlayerBase::LagomPlayerBase(GameState* state) :
     _sceneNode->setPosition(_location);
 	_sceneNode->setScale(GetFactory()->MeshScale);
 
-	_btCollisionShape = new btCylinderShape(btVector3(getIntFactory().CollisionRange,getIntFactory().GroundOffset,getIntFactory().CollisionRange));
-	_btDefaultMotionState =
-		new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0.0f,getIntFactory().GroundOffset,0.0f)));
+	_btCollisionShape = new (alignedMalloc<btCylinderShape>()) btCylinderShape(btVector3(getIntFactory().CollisionRange,getIntFactory().GroundOffset,getIntFactory().CollisionRange));
+	_btDefaultMotionState = new (alignedMalloc<btDefaultMotionState>())
+		btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0.0f,getIntFactory().GroundOffset,0.0f)));
 
 	btScalar mass = 0.0f;
     btVector3 fallInertia(0,0,0);
@@ -48,7 +48,8 @@ LagomPlayerBase::LagomPlayerBase(GameState* state) :
 
 	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI(mass,_btDefaultMotionState,_btCollisionShape,fallInertia);
 
-	_btRigidBody = new btRigidBody(rigidBodyCI);
+	_btRigidBody = new (alignedMalloc<btRigidBody>()) btRigidBody(rigidBodyCI);
+	assert((int)_btRigidBody % 16 == 0);
 	_btRigidBody->setActivationState(DISABLE_DEACTIVATION);
 	_health = getIntFactory().Health;
 

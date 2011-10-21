@@ -179,21 +179,24 @@ void GameState::exit()
 
 	_btDynamicsWorld->removeRigidBody(_btGroundRigidBody);
 
-	GS_SAFEDELETE(_btGroundRigidBody);
-	GS_SAFEDELETE(_btGroundMotionState);
-	GS_SAFEDELETE(_btGroundShape);
+	alignedFree(_btGroundRigidBody);
+	alignedFree(_btGroundMotionState);
+	alignedFree(_btGroundShape);
 	
-	GS_SAFEDELETE(_btDynamicsWorld);
-	GS_SAFEDELETE(_btSolver);
-	GS_SAFEDELETE(_btDispatcher);
-	GS_SAFEDELETE(_btCollisionConfiguration);
-	GS_SAFEDELETE(_btBroadphase);
+	alignedFree(_btDynamicsWorld);
+	alignedFree(_btSolver);
+	alignedFree(_btDispatcher);
+	alignedFree(_btCollisionConfiguration);
+	alignedFree(_btBroadphase);
 	
     Lagom::getSingletonPtr()->m_pLog->logMessage("Leaving GameState...");
 
     m_pSceneMgr->destroyCamera(m_pCamera);
     if(m_pSceneMgr)
+	{
         Lagom::getSingletonPtr()->m_pRoot->destroySceneManager(m_pSceneMgr);
+		m_pSceneMgr = 0;
+	}
 }
 
 
@@ -219,23 +222,24 @@ void GameState::createScene()
 	// BULLET SETUP
 	
 	 // Build the broadphase
-    _btBroadphase = new btDbvtBroadphase();
+    _btBroadphase = new (alignedMalloc<btDbvtBroadphase>()) btDbvtBroadphase();
  
     // Set up the collision configuration and dispatcher
-    _btCollisionConfiguration = new btDefaultCollisionConfiguration();
-    _btDispatcher = new btCollisionDispatcher(_btCollisionConfiguration);
+    _btCollisionConfiguration = new (alignedMalloc<btDefaultCollisionConfiguration>()) btDefaultCollisionConfiguration();
+    _btDispatcher = new (alignedMalloc<btCollisionDispatcher>()) btCollisionDispatcher(_btCollisionConfiguration);
  
     // The actual physics solver
-    _btSolver = new btSequentialImpulseConstraintSolver;
+    _btSolver = new (alignedMalloc<btSequentialImpulseConstraintSolver>()) btSequentialImpulseConstraintSolver;
  
     // The world.
-    _btDynamicsWorld = new btDiscreteDynamicsWorld(_btDispatcher,_btBroadphase,_btSolver,_btCollisionConfiguration);
+    _btDynamicsWorld = new (alignedMalloc<btDiscreteDynamicsWorld>()) btDiscreteDynamicsWorld(_btDispatcher,_btBroadphase,_btSolver,_btCollisionConfiguration);
     _btDynamicsWorld->setGravity(btVector3(0,-10,0));
 
-	_btGroundShape = new btStaticPlaneShape(btVector3(0,1,0),1);
-	_btGroundMotionState = new btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0,-1,0)));
+	_btGroundShape = new (alignedMalloc<btStaticPlaneShape>()) btStaticPlaneShape(btVector3(0,1,0),1);
+	_btGroundMotionState = new (alignedMalloc<btDefaultMotionState>()) btDefaultMotionState(btTransform(btQuaternion(0,0,0,1),btVector3(0,-1,0)));
 	btRigidBody::btRigidBodyConstructionInfo  groundRigidBodyCI(0,_btGroundMotionState,_btGroundShape,btVector3(0,0,0));
-    _btGroundRigidBody = new btRigidBody(groundRigidBodyCI);
+    _btGroundRigidBody = new (alignedMalloc<btRigidBody>()) btRigidBody(groundRigidBodyCI);
+	assert((int)_btGroundRigidBody % 16 == 0);
 	_btGroundRigidBody->setRestitution(1.0f);
 	_btGroundRigidBody->setActivationState(DISABLE_DEACTIVATION);
 
@@ -659,7 +663,7 @@ void GameState::update(double timeSinceLastFrame)
 	float cold = cosf((-oldPulse-250.0f)/250.0f);
 	float cnew = cosf((-_pulseTime-250.0f)/250.0f);
 
-	if( ( cold < 0.0f && cnew > 0.0f ) )
+	if( _playerBase && ( cold < 0.0f && cnew > 0.0f ) )
 	{
 		//we passed crest so play sound!
 		Lagom::getSingleton().PlaySound(PulseSound,PulseSoundVolume);

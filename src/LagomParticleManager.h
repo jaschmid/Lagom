@@ -20,7 +20,15 @@
 // a manager class for lots of little physics
 // particles, used for debris in the game
 // uses bullet for simulation
+// SO MANY ISSUES WITH THIS CLASS
 /**********************************************/
+
+
+#ifdef ANDROID
+#define CACHEALIGN __attribute__((aligned(64)))
+#else
+#define CACHEALIGN __declspec(align(64))
+#endif
 
 class LagomParticleManager
 {
@@ -35,30 +43,33 @@ public:
 
 private:
 
-	struct Particle
+	CACHEALIGN struct Particle
 	{
-		inline Particle(btCollisionShape& collisionShape,const btVector3& location,Ogre::BillboardSet* owner,const Ogre::ColourValue& color,float deathTime,float creationTime,const btVector3& inertia,btScalar mass) :
+		Particle(btCollisionShape& collisionShape,const btVector3& location,Ogre::BillboardSet* owner,const Ogre::ColourValue& color,float deathTime,float creationTime,const btVector3& inertia,btScalar mass) :
 			_btDefaultMotionState( btTransform(btQuaternion(0,0,0,1),location) ),
-			_btRigidBody( mass,&_btDefaultMotionState,&collisionShape,inertia ),
-			_billboard(*owner->createBillboard(Bullet2Ogre(location), color)),
+			_btRigidBody( mass,&_btDefaultMotionState,&collisionShape,inertia),
+			_billboard(owner->createBillboard(Bullet2Ogre(location), color)),
 			_deathTime(deathTime),
 			_creationTime(creationTime)
+		{
+			assert((int)this % 16 == 0);
+		}
+
+		~Particle()
 		{
 		}
 
 		btDefaultMotionState	_btDefaultMotionState;
 		btRigidBody				_btRigidBody;
-		Ogre::Billboard&		_billboard;
+		Ogre::Billboard*		_billboard;
 		const float				_creationTime;
 		const float				_deathTime;
 	};
-	void _activateParticle(const std::set<Particle*>::iterator& p,const Ogre::ColourValue& color,const Ogre::Vector3& location,float spawnTime,float deathTime,const btVector3& speed);
+	void _activateParticle(const Ogre::ColourValue& color,const Ogre::Vector3& location,float spawnTime,float deathTime,const btVector3& speed);
 	void _deactivateParticle(const std::set<Particle*>::iterator& p);
 
-	char*						_memory;
-	Particle*					_particles;
 	std::set<Particle*>			_activeList;
-	std::set<Particle*>			_inactiveList;
+	//std::set<Particle*>			_inactiveList;
 
 	Ogre::SceneManager* const	_sceneManager;
 	btDynamicsWorld* const		_dynamicsWorld;

@@ -14,12 +14,6 @@
 #include "headers.h"
 #include "LagomParticleManager.h"
 #include "Lagom.hpp"
-/*
-#ifdef ANDROID
-#define CACHEALIGN __attribute__((aligned(64)))
-#else
-#define CACHEALIGN __declspec(align(64))
-#endif*/
 
 LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsWorld* world,int maxParticles,float size) :
 	_sceneManager(scene),
@@ -27,6 +21,7 @@ LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsW
 	_particleSize(size),
 	_maxParticles(maxParticles)
 {
+	
 	_billboardCollection = _sceneManager->createBillboardSet(_maxParticles);
 
 	_billboardCollection->setBillboardsInWorldSpace(true);
@@ -37,8 +32,8 @@ LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsW
 	_billboardCollection->setMaterialName("Particle");
 	_billboardCollection->setRenderQueueGroup(95);
 
-	typedef std::aligned_storage<sizeof(Particle),std::alignment_of<Particle>::value>::type alignedType;
-
+	typedef CACHEALIGN std::aligned_storage<sizeof(Particle),std::alignment_of<Particle>::value>::type alignedType;
+	/*
 	char* aligned = _memory = (char*)new alignedType[_maxParticles+1];
 	int adjustment = 0;
 	while( (int)aligned % std::alignment_of<Particle>::value != 0)
@@ -50,7 +45,7 @@ LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsW
 	_particles = (Particle*)(aligned);
 
 	for(int i = 0; i < _maxParticles; ++i)
-		_inactiveList.insert(&_particles[i]);
+		_inactiveList.insert(&_particles[i]);*/
 	_sceneManager->getRootSceneNode()->attachObject(_billboardCollection);
 
 	_btCollisionShape = new btSphereShape(size);
@@ -62,50 +57,52 @@ LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsW
 
 LagomParticleManager::~LagomParticleManager()
 {
+	
 	_sceneManager->getRootSceneNode()->detachObject(_billboardCollection);
 
 	while(!_activeList.empty())
 		_deactivateParticle(_activeList.begin());
 
 	_billboardCollection->clear();
-
+	/*
 	delete _memory;
-
-	_sceneManager->destroyMovableObject(_billboardCollection);
+	*/
+	_sceneManager->destroyBillboardSet(_billboardCollection);
 	
 	delete _btCollisionShape;
 }
 
-void LagomParticleManager::_activateParticle(const std::set<LagomParticleManager::Particle*>::iterator& p,const Ogre::ColourValue& color,const Ogre::Vector3& location,float spawnTime,float deathTime,const btVector3& speed)
+void LagomParticleManager::_activateParticle(const Ogre::ColourValue& color,const Ogre::Vector3& location,float spawnTime,float deathTime,const btVector3& speed)
 {
-	Particle* part = *p;
-	_inactiveList.erase(p);
-
-	new (part) Particle(*_btCollisionShape,Ogre2Bullet(location),_billboardCollection,color,deathTime,spawnTime,_particleInertia,_particleMass);
+	
+	Particle* part = new (alignedMalloc<Particle>()) Particle(*_btCollisionShape,Ogre2Bullet(location),_billboardCollection,color,deathTime,spawnTime,_particleInertia,_particleMass);
 	part->_btRigidBody.setLinearVelocity(speed);
 	part->_btRigidBody.setFriction(1.0f);
 	part->_btRigidBody.setRestitution(0.5f);
+	part->_btRigidBody.setAngularFactor( btVector3( 0.0f, 0.0f, 0.0f) );
 
 	_dynamicsWorld->addRigidBody(&part->_btRigidBody,COL_PARTICLES,COL_GAME_OBJECT|COL_STATIC);
-	part->_btRigidBody.setAngularFactor( btVector3( 0.0f, 0.0f, 0.0f) );
 
 	_activeList.insert(part);
 }
 
 void LagomParticleManager::_deactivateParticle(const std::set<LagomParticleManager::Particle*>::iterator& p)
 {
+	
 	Particle* part = *p;
 	_activeList.erase(p);
 
-	_dynamicsWorld->removeRigidBody(&part->_btRigidBody);
-	_billboardCollection->removeBillboard(&part->_billboard);
-	part->~Particle();
 
-	_inactiveList.insert(part);
+	_dynamicsWorld->removeRigidBody(&part->_btRigidBody);
+	_billboardCollection->removeBillboard(part->_billboard);
+	
+
+	alignedFree(part);
 }
 
 void LagomParticleManager::Update(double timeElapsed)
 {
+	
 	auto it = _activeList.begin();
 
 	float time = Lagom::getSingleton().GetTime();
@@ -121,11 +118,11 @@ void LagomParticleManager::Update(double timeElapsed)
 			continue;
 		}
 
-		(*it)->_billboard.setPosition( Bullet2Ogre( (*it)->_btRigidBody.getCenterOfMassPosition() ));
+		(*it)->_billboard->setPosition( Bullet2Ogre( (*it)->_btRigidBody.getCenterOfMassPosition() ));
 
-		Ogre::ColourValue oldColor = (*it)->_billboard.getColour();
+		Ogre::ColourValue oldColor = (*it)->_billboard->getColour();
 		oldColor.a = 1.0f-(time - (*it)->_creationTime) / ((*it)->_deathTime - (*it)->_creationTime);
-		(*it)->_billboard.setColour(oldColor);
+		(*it)->_billboard->setColour(oldColor);
 		++it;
 	}
 
@@ -134,24 +131,27 @@ void LagomParticleManager::Update(double timeElapsed)
 
 void LagomParticleManager::AddParticle(const Ogre::ColourValue& color,const Ogre::Vector3& location,const Ogre::Vector3& speed,float lifetime)
 {
+	/*
 	if(_inactiveList.empty())
-		return;
+		return;*/
 
 	_billboardCollection->beginBillboards(1);
 	
     btVector3 particleInertia = Ogre2Bullet(speed);
     _btCollisionShape->calculateLocalInertia(_particleMass,particleInertia);
 
-	_activateParticle(_inactiveList.begin(),color,location,Lagom::getSingleton().GetTime(),Lagom::getSingleton().GetTime()+lifetime,particleInertia);
+	_activateParticle(color,location,Lagom::getSingleton().GetTime(),Lagom::getSingleton().GetTime()+lifetime,particleInertia);
 
 	_billboardCollection->endBillboards();
 }
 
 void LagomParticleManager::AddParticleBunch(const Ogre::ColourValue& color,const Ogre::Vector3& location,const Ogre::Vector3& speed,float lifetime,int CubeSize,float centerSpeedFactor)
 {
+	
 	int numParts = CubeSize*CubeSize*CubeSize;
+	/*
 	if(_inactiveList.size() < numParts)
-		return;
+		return;*/
 	
 	float spawnTime = Lagom::getSingleton().GetTime();
 	float deathTime = spawnTime+lifetime;
@@ -168,7 +168,7 @@ void LagomParticleManager::AddParticleBunch(const Ogre::ColourValue& color,const
 			{
 				Ogre::Vector3 particleLocation = spawnBegin + Ogre::Vector3( ix*_particleSize, iy*_particleSize, iz*_particleSize );
 				Ogre::Vector3 particleSpeed = (particleLocation-location)*( 2.0f/(CubeSize*_particleSize) ) * centerSpeedFactor;
-				_activateParticle(_inactiveList.begin(),color,particleLocation,spawnTime,deathTime,Ogre2Bullet(particleSpeed));
+				_activateParticle(/*_inactiveList.begin(),*/color,particleLocation,spawnTime,deathTime,Ogre2Bullet(particleSpeed));
 			}
 
 	_billboardCollection->endBillboards();

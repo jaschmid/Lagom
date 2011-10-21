@@ -40,7 +40,7 @@ public:
 	inline Ogre::Vector3 GetLocation() const{return _location;}
 	inline bool IsPositive() const { return _energy >= 0.0f;}
 	inline bool IsDestroyed() const { return _health <= 0.0f; }
-	inline void Destroy() { _health = -1000.0f; }
+	virtual void Destroy() { _health = -1000.0f; }
 
 protected:
 

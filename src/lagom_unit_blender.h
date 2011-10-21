@@ -58,7 +58,8 @@ public:
 	};
 	
 	typedef LagomBlenderFactory Factory;
-
+	
+	virtual void Destroy() {LagomActor::Destroy();_target.reset();_victims.clear();}
 private:
 
 	inline const Factory& getIntFactory() const

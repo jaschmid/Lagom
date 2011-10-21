@@ -76,7 +76,8 @@ public:
 	};
 	
 	typedef LagomObeliskFactory Factory;
-
+	
+	virtual void Destroy() {LagomActor::Destroy();_target.reset();}
 private:
 	
 	void updateAttackEffect(Ogre::Vector3 target);

@@ -278,5 +278,16 @@ enum collisiontypes {
 static const int COL_ALL = COL_STATIC|COL_GAME_OBJECT|COL_PARTICLES;
 
 
+template<class C> void* alignedMalloc()
+{
+	int align = std::alignment_of<C>::value;
+	return _aligned_malloc(sizeof(C),align);
+}
+template<class C> void alignedFree(C* c)
+{
+	c->~C();
+	_aligned_free(c);
+}
+
 #endif
 

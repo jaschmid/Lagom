@@ -31,6 +31,10 @@ private:
 #endif
 
 // OGRE
+/*
+#ifndef ANDROID
+#include <vld.h>
+#endif*/
 
 #include <OGRE/OgreWindowEventUtilities.h>
 #include <OGRE/OgreSubEntity.h>

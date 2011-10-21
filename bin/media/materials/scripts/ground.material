@@ -5,3 +5,13 @@ material ground : default
 	set_texture_alias DiffuseMap groundD.png
 	set_texture_alias NormalMap groundN.png
 }
+material Material : default
+{
+	set_texture_alias DiffuseMap groundD.png
+	set_texture_alias NormalMap groundN.png
+}
+material None : default
+{
+	set_texture_alias DiffuseMap groundD.png
+	set_texture_alias NormalMap groundN.png
+}

@@ -60,7 +60,7 @@ public:
 	};
 	
 	typedef LagomGlowsphereFactory Factory;
-
+	virtual void Destroy() {LagomActor::Destroy();_target.reset();}
 private:
 
 	inline const Factory& getIntFactory() const
