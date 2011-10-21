@@ -14,12 +14,12 @@
 #include "headers.h"
 #include "LagomParticleManager.h"
 #include "Lagom.hpp"
-
+/*
 #ifdef ANDROID
 #define CACHEALIGN __attribute__((aligned(64)))
 #else
 #define CACHEALIGN __declspec(align(64))
-#endif
+#endif*/
 
 LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsWorld* world,int maxParticles,float size) :
 	_sceneManager(scene),
@@ -37,9 +37,18 @@ LagomParticleManager::LagomParticleManager(Ogre::SceneManager* scene,btDynamicsW
 	_billboardCollection->setMaterialName("Particle");
 	_billboardCollection->setRenderQueueGroup(95);
 
-	typedef CACHEALIGN std::aligned_storage<sizeof(Particle),std::alignment_of<Particle>::value>::type alignedType;
+	typedef std::aligned_storage<sizeof(Particle),std::alignment_of<Particle>::value>::type alignedType;
 
-	_particles = (Particle*)(new alignedType[_maxParticles]);
+	char* aligned = _memory = (char*)new alignedType[_maxParticles+1];
+	int adjustment = 0;
+	while( (int)aligned % std::alignment_of<Particle>::value != 0)
+	{
+		aligned++;
+		adjustment++;
+	}
+
+	_particles = (Particle*)(aligned);
+
 	for(int i = 0; i < _maxParticles; ++i)
 		_inactiveList.insert(&_particles[i]);
 	_sceneManager->getRootSceneNode()->attachObject(_billboardCollection);
@@ -60,7 +69,7 @@ LagomParticleManager::~LagomParticleManager()
 
 	_billboardCollection->clear();
 
-	delete (unsigned char*)(_particles);
+	delete _memory;
 
 	_sceneManager->destroyMovableObject(_billboardCollection);
 	

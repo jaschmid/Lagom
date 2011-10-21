@@ -55,6 +55,7 @@ private:
 	void _activateParticle(const std::set<Particle*>::iterator& p,const Ogre::ColourValue& color,const Ogre::Vector3& location,float spawnTime,float deathTime,const btVector3& speed);
 	void _deactivateParticle(const std::set<Particle*>::iterator& p);
 
+	char*						_memory;
 	Particle*					_particles;
 	std::set<Particle*>			_activeList;
 	std::set<Particle*>			_inactiveList;

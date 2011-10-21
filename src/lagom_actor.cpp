@@ -174,6 +174,7 @@ void LagomActor::CreateRigidBody()
 	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI(mass,_btDefaultMotionState,_btCollisionShape,fallInertia);
 
 	_btRigidBody = new btRigidBody(rigidBodyCI);
+	_btRigidBody->setActivationState(DISABLE_DEACTIVATION);
 }
 
 void LagomActor::RegisterRigidBody(btDynamicsWorld* world)

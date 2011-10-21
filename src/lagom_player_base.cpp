@@ -49,6 +49,7 @@ LagomPlayerBase::LagomPlayerBase(GameState* state) :
 	btRigidBody::btRigidBodyConstructionInfo rigidBodyCI(mass,_btDefaultMotionState,_btCollisionShape,fallInertia);
 
 	_btRigidBody = new btRigidBody(rigidBodyCI);
+	_btRigidBody->setActivationState(DISABLE_DEACTIVATION);
 	_health = getIntFactory().Health;
 
 	RestrictConstruction();
