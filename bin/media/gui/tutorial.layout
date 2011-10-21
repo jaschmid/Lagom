@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<GUILayout>
+  <Window Type="Sunrise/SimpleFrame" Name="_tutorialBackground">
+    <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+    <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.0,0},{1.0,0},{1.0,0}}" />
+    <Window Type="Sunrise/StaticImage" Name="_tutorialImage" >
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.0,0},{1.0,0},{1.0,0}}" />
+    </Window>
+  </Window>
+</GUILayout>

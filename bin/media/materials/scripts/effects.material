@@ -1,0 +1,444 @@
+material Arrow
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture arrow.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ material Click
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture click.png
+		 tex_address_mode clamp
+         colour_op_ex source2 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ material warningPing
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture warningMark.png
+		 rotate_anim .5f
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+ material tutorialArrow
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture longArrow.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+ material tutorialCircle
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture circle.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+material VirtualUnit
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+ 
+       texture_unit
+       {
+         colour_op_ex source1 src_manual src_current .85 .85 .85
+         alpha_op_ex source1 src_manual src_current 0.5  
+       }
+     }
+   }
+ }
+
+material Constructing
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+        lighting off
+       scene_blend alpha_blend
+		polygon_mode wireframe
+       texture_unit
+       {
+         colour_op_ex source1 src_current src_current
+         alpha_op_ex source1 src_current src_current
+       }
+     }
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+ 
+       texture_unit
+       {
+         colour_op_ex source1 src_current src_current
+         alpha_op_ex source1 src_current src_current 
+       }
+     }
+   }
+ }
+ 
+material ConstructingHover
+ {
+   technique
+   {
+     pass
+     {
+        lighting off
+       scene_blend alpha_blend
+		polygon_mode wireframe
+       texture_unit
+       {
+         colour_op_ex source1 src_manual src_current 1.0 1.0 1.0
+         alpha_op_ex source1 src_manual src_current 0.5   
+       }
+     }
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+ 
+       texture_unit
+       {
+         colour_op_ex source1 src_manual src_current 1.0 1.0 1.0
+         alpha_op_ex source1 src_manual src_current 0.25  
+       }
+     }
+   }
+ }
+
+material Particle
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			scene_blend alpha_blend
+			diffuse vertexcolour
+
+			point_sprites on
+			point_size 1.0f
+			point_size_attenuation on
+		}
+	}
+}
+
+material PositiveBeam
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op add
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture EnergyBeam.png
+		 scroll_anim 1.0f 0.0f
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+material NegativeBeam
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op reverse_subtract
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture EnergyBeam.png
+		 scroll_anim 1.0f 0.0f
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+material PositiveLaser
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op add
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture LaserBeam.png
+		 scroll_anim 1.0f 0.0f
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+ 
+material NegativeLaser
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op reverse_subtract
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture LaserBeam.png
+		 scroll_anim 1.0f 0.0f
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+
+ material PositiveExplosion
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op add
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture EnergyExplosion.png
+		 rotate_anim .5f
+		 tex_address_mode clamp
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+
+material NegativeExplosion
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+	   diffuse vertexcolour
+       depth_write off
+	   cull_hardware none
+       scene_blend src_alpha one 
+	   scene_blend_op reverse_subtract
+
+       texture_unit 
+       {
+		 rotate_anim .5f
+		 texture EnergyExplosion.png
+		 tex_address_mode clamp
+         colour_op_ex source1 src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+
+ material BlenderBladesPositive
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+		diffuse vertexcolour
+       scene_blend src_alpha one 
+	   scene_blend_op add
+       depth_write off
+	   cull_hardware none
+
+       texture_unit 
+       {
+		 texture blenderBlades.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+
+material BlenderBladesNegative
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+	   diffuse vertexcolour
+       depth_write off
+	   cull_hardware none
+       scene_blend src_alpha one 
+	   scene_blend_op reverse_subtract
+
+       texture_unit 
+       {
+		 texture blenderBlades.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }
+
+ material fadeToBlackMaterial
+ {
+     technique
+     {
+         pass
+         {
+             scene_blend alpha_blend
+ 
+             texture_unit
+             {
+                 texture black.png
+             }
+         }
+     }
+ }

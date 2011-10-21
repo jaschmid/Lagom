@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="Lagom" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+  </Plugins>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="../../src/AppState.hpp"/>
+    <File Name="../../src/AppStateManager.cpp"/>
+    <File Name="../../src/AppStateManager.hpp"/>
+    <File Name="../../src/DemoApp.cpp"/>
+    <File Name="../../src/DemoApp.hpp"/>
+    <File Name="../../src/GameState.cpp"/>
+    <File Name="../../src/GameState.hpp"/>
+    <File Name="../../src/Lagom.cpp"/>
+    <File Name="../../src/Lagom.hpp"/>
+    <File Name="../../src/main.cpp"/>
+    <File Name="../../src/MenuState.cpp"/>
+    <File Name="../../src/MenuState.hpp"/>
+    <File Name="../../src/PauseState.cpp"/>
+    <File Name="../../src/PauseState.hpp"/>
+    <File Name="../../src/rapidxml.hpp"/>
+    <VirtualDirectory Name="GameObjects">
+      <VirtualDirectory Name="Base">
+        <File Name="../../src/lagom_actor.cpp"/>
+        <File Name="../../src/lagom_actor.h"/>
+        <File Name="../../src/lagom_actor_factory.h"/>
+        <File Name="../../src/lagom_actor_factory.cpp"/>
+        <File Name="../../src/lagom_actor_factory_imp.h"/>
+        <File Name="../../src/lagom_unit.h"/>
+        <File Name="../../src/lagom_unit.cpp"/>
+      </VirtualDirectory>
+      <File Name="../../src/lagom_player_base.cpp"/>
+      <File Name="../../src/lagom_player_base.h"/>
+      <VirtualDirectory Name="Units">
+        <File Name="../../src/lagom_unit_glowsphere.cpp"/>
+        <File Name="../../src/lagom_unit_glowsphere.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <File Name="../../src/MenuButton.cpp"/>
+    <File Name="../../src/MenuButton.h"/>
+    <File Name="../../src/MenuEntry.cpp"/>
+    <File Name="../../src/MenuEntry.h"/>
+    <File Name="../../src/MenuManager.cpp"/>
+    <File Name="../../src/MenuManager.h"/>
+    <File Name="../../src/MenuSlider.cpp"/>
+    <File Name="../../src/MenuSlider.h"/>
+    <File Name="../../src/SharedMenus.h"/>
+  </VirtualDirectory>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-std=c++0x" C_Options="-g" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+        <IncludePath Value="/usr/include/bullet"/>
+        <IncludePath Value="/usr/include/CEGUI"/>
+      </Compiler>
+      <Linker Options="" Required="yes">
+        <Library Value="OgreMain"/>
+        <Library Value="OIS"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="../../out/x64/Debug" Command="../out/x64/Debug/$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="../../bin/" PauseExecWhenProcTerminates="no"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" C_Options="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" UseDifferentPCHFlags="no" PCHFlags="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[
+      ]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>

@@ -1,0 +1,7 @@
+import * from "default.material"
+
+material Obelisk : default
+{
+	set_texture_alias DiffuseMap obeliskD.png
+	set_texture_alias NormalMap obeliskN.png
+}

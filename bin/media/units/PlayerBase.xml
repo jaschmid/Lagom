@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<PlayerBase>
+  <GroundOffset>5.0f</GroundOffset>
+  <CollisionRange>5.0f</CollisionRange>
+  <Health>50000.0f</Health>
+  <HealthRegeneration>250.0f</HealthRegeneration>
+  <EnergyDischarge>-20000.0f</EnergyDischarge>
+  <EnergyDischargeSize>50.0f</EnergyDischargeSize>
+  <EnergyDischargeMaterial>NegativeExplosion</EnergyDischargeMaterial>
+  <DeathSound>largeExplosion.ogg</DeathSound>
+  <DeathParticleSize>5</DeathParticleSize>
+  <Mesh>playerBase.mesh</Mesh>
+  <Material>playerBase</Material>
+  <MeshScale>1.0f 1.0f 1.0f</MeshScale>
+  <ConstructionOffset>0.0f 10.0f 0.0f</ConstructionOffset>
+  <ConstructingTriggerSize>5.0f</ConstructingTriggerSize>
+  <ConstructingHoverMaterial>ConstructingHover</ConstructingHoverMaterial>
+  <ConstructingMaterial>Constructing</ConstructingMaterial>
+  <ConstructedGroundOffset>0.0f</ConstructedGroundOffset>
+  <ConstructionHighlightTime>800.0f</ConstructionHighlightTime>
+  <ConstructionCompleteSound>constructionComplete.ogg</ConstructionCompleteSound>
+  <ConstructionAlphaFactor>0.5f</ConstructionAlphaFactor>
+</PlayerBase>

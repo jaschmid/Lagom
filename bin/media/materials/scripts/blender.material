@@ -1,0 +1,7 @@
+import * from "default.material"
+
+material Blender : default
+{
+	set_texture_alias DiffuseMap blenderD.png
+	set_texture_alias NormalMap blenderN.png
+}

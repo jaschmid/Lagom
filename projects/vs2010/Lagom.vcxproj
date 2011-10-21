@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ant\jni\AndroidArchive.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\AndroidCeGuiLogger.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\AndroidLogListener.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\nv_util\nv_util.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\bin\media\materials\scripts\newLighting.cg" />
+    <ClInclude Include="..\..\src\AppState.hpp" />
+    <ClInclude Include="..\..\src\AppStateManager.hpp" />
+    <ClInclude Include="..\..\src\BillboardManager.h" />
+    <ClInclude Include="..\..\src\LagomInput.h" />
+    <ClInclude Include="..\..\src\lagom_unit_blender.h" />
+    <ClInclude Include="..\..\src\lagom_unit_obelisk.h" />
+    <ClInclude Include="..\..\src\MenuColourSelect.h" />
+    <ClInclude Include="..\..\src\MenuSpinSelect.h" />
+    <ClInclude Include="..\..\src\OgreGpuCommandBufferFlush.h" />
+    <ClInclude Include="..\..\src\SharedFunctions.h" />
+    <ClInclude Include="..\..\src\Constants.h" />
+    <ClInclude Include="..\..\src\DemoApp.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GameState.hpp" />
+    <ClInclude Include="..\..\src\Gorilla\Gorilla.h" />
+    <ClInclude Include="..\..\src\headers.h" />
+    <ClInclude Include="..\..\src\Lagom.hpp" />
+    <ClInclude Include="..\..\src\LagomParticleManager.h" />
+    <ClInclude Include="..\..\src\lagom_actor.h" />
+    <ClInclude Include="..\..\src\lagom_actor_factory.h" />
+    <ClInclude Include="..\..\src\lagom_actor_factory_imp.h" />
+    <ClInclude Include="..\..\src\lagom_player_base.h" />
+    <ClInclude Include="..\..\src\lagom_unit_glowsphere.h" />
+    <ClInclude Include="..\..\src\MenuButton.h" />
+    <ClInclude Include="..\..\src\MenuCheckbox.h" />
+    <ClInclude Include="..\..\src\MenuEntry.h" />
+    <ClInclude Include="..\..\src\MenuManager.h" />
+    <ClInclude Include="..\..\src\MenuSlider.h" />
+    <ClInclude Include="..\..\src\MenuState.hpp" />
+    <ClInclude Include="..\..\src\PauseState.hpp" />
+    <ClInclude Include="..\..\src\SharedMenus.h" />
+    <ClInclude Include="..\..\src\SoundManager.h" />
+    <ClInclude Include="..\..\src\StageSpawnManager.h" />
+    <ClInclude Include="..\..\src\Strings.h" />
+    <ClInclude Include="..\..\src\TinyXML\tinystr.h" />
+    <ClInclude Include="..\..\src\TinyXML\tinyxml.h" />
+    <ClInclude Include="..\..\src\TinyXML\TinyXMLResource.h" />
+    <ClInclude Include="..\..\src\TinyXML\TinyXMLResourceManager.h" />
+    <ClInclude Include="..\..\src\TutorialCandy.h" />
+    <ClInclude Include="..\..\src\XMLResourceData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ant\jni\AndroidArchive.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\AndroidCeGuiLogger.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\AndroidLogListener.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\nv_util\nv_util.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\lagomJNI.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AppStateManager.cpp" />
+    <ClCompile Include="..\..\src\BillboardManager.cpp" />
+    <ClCompile Include="..\..\src\DemoApp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GameState.cpp" />
+    <ClCompile Include="..\..\src\Gorilla\Gorilla.cpp" />
+    <ClCompile Include="..\..\src\headers.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Android'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Lagom.cpp" />
+    <ClCompile Include="..\..\src\LagomInput.cpp" />
+    <ClCompile Include="..\..\src\LagomParticleManager.cpp" />
+    <ClCompile Include="..\..\src\lagom_actor.cpp" />
+    <ClCompile Include="..\..\src\lagom_actor_factory.cpp" />
+    <ClCompile Include="..\..\src\lagom_player_base.cpp" />
+    <ClCompile Include="..\..\src\lagom_unit_blender.cpp" />
+    <ClCompile Include="..\..\src\lagom_unit_glowsphere.cpp" />
+    <ClCompile Include="..\..\src\lagom_unit_obelisk.cpp" />
+    <ClCompile Include="..\..\src\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuButton.cpp" />
+    <ClCompile Include="..\..\src\MenuCheckbox.cpp" />
+    <ClCompile Include="..\..\src\MenuColourSelect.cpp" />
+    <ClCompile Include="..\..\src\MenuEntry.cpp" />
+    <ClCompile Include="..\..\src\MenuManager.cpp" />
+    <ClCompile Include="..\..\src\MenuSlider.cpp" />
+    <ClCompile Include="..\..\src\MenuSpinSelect.cpp" />
+    <ClCompile Include="..\..\src\MenuState.cpp" />
+    <ClCompile Include="..\..\src\OgreGpuCommandBufferFlush.cpp" />
+    <ClCompile Include="..\..\src\PauseState.cpp" />
+    <ClCompile Include="..\..\src\SoundManager.cpp" />
+    <ClCompile Include="..\..\src\StageSpawnManager.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\tinystr.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\tinyxml.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\TinyXMLResource.cpp" />
+    <ClCompile Include="..\..\src\TinyXML\TinyXMLResourceManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\ant\AndroidManifest.xml" />
+    <None Include="..\..\ant\build.xml" />
+    <None Include="..\..\ant\default.properties" />
+    <None Include="..\..\ant\local.properties" />
+    <None Include="..\..\ant\res\values\strings.xml" />
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvActivity.java" />
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvGLES2Activity.java" />
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvGLESActivity.java" />
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvUtil.java" />
+    <None Include="..\..\ant\src\org\ogre\Lagom\LagomActivity.java" />
+    <None Include="..\..\bin\data.cfg" />
+    <None Include="..\..\bin\media\gui\credits.layout" />
+    <None Include="..\..\bin\media\gui\highscores.layout" />
+    <None Include="..\..\bin\media\gui\highScoreEntry.layout" />
+    <None Include="..\..\bin\media\gui\tutorial.layout" />
+    <None Include="..\..\bin\media\materials\scripts\blender.material" />
+    <None Include="..\..\bin\media\materials\scripts\cubeUnit.material" />
+    <None Include="..\..\bin\media\materials\scripts\default.material" />
+    <None Include="..\..\bin\media\materials\scripts\default.program" />
+    <None Include="..\..\bin\media\materials\scripts\effects.material" />
+    <None Include="..\..\bin\media\materials\scripts\fadeToBlack.overlay" />
+    <None Include="..\..\bin\media\materials\scripts\ground.material" />
+    <None Include="..\..\bin\media\materials\scripts\lagomLogo.material" />
+    <None Include="..\..\bin\media\materials\scripts\newUtils.cg" />
+    <None Include="..\..\bin\media\materials\scripts\obelisk.material" />
+    <None Include="..\..\bin\media\materials\scripts\particle.material" />
+    <None Include="..\..\bin\media\materials\scripts\playerBase.material" />
+    <None Include="..\..\bin\media\materials\scripts\shadowCaster.material" />
+    <None Include="..\..\bin\media\materials\scripts\vsmCaster.cg" />
+    <None Include="..\..\bin\media\SSAO\ClearGBuffer.cg" />
+    <None Include="..\..\bin\media\SSAO\ClearGBuffer.material" />
+    <None Include="..\..\bin\media\SSAO\Crytek.cg" />
+    <None Include="..\..\bin\media\SSAO\Crytek.material" />
+    <None Include="..\..\bin\media\SSAO\GBuffer.cg" />
+    <None Include="..\..\bin\media\SSAO\GBuffer.material" />
+    <None Include="..\..\bin\media\SSAO\ShowDepth.cg" />
+    <None Include="..\..\bin\media\SSAO\ShowDepth.material" />
+    <None Include="..\..\bin\media\SSAO\ShowNormals.cg" />
+    <None Include="..\..\bin\media\SSAO\ShowNormals.material" />
+    <None Include="..\..\bin\media\SSAO\ShowViewPos.cg" />
+    <None Include="..\..\bin\media\SSAO\ShowViewPos.material" />
+    <None Include="..\..\bin\media\SSAO\SSAO.compositor" />
+    <None Include="..\..\bin\media\SSAO\SSAOPost.cg" />
+    <None Include="..\..\bin\media\SSAO\SSAOPost.compositor" />
+    <None Include="..\..\bin\media\SSAO\SSAOPost.material" />
+    <None Include="..\..\bin\media\units\Blender.xml" />
+    <None Include="..\..\bin\media\units\Challenge.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\bin\media\units\CubeUnit.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\bin\media\units\Game.xml" />
+    <None Include="..\..\bin\media\units\Obelisk.xml" />
+    <None Include="..\..\bin\media\units\PlayerBase.xml" />
+    <ClCompile Include="..\..\src\TutorialCandy.cpp" />
+    <ClCompile Include="..\..\src\XMLResourceData.cpp">
+      <FileType>Document</FileType>
+    </ClCompile>
+    <None Include="todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B5A8E6A5-984B-4B05-9B52-983BEFE97E8C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Lagom</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)\..\..\ant\jni\;$(SolutionDir)\..\..\src\;C:\Code\LagomDependancies\src\zziplib\trunk\zzip-0;D:\Jan\Code\LagomDependancies\include\CEGUI;D:\Jan\Code\LagomDependancies\include\OGRE;D:\Jan\Code\LagomDependancies\include\Bullet;$(IncludePath)</IncludePath>
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)\..\..\ant\jni\;$(SolutionDir)\..\..\src\;C:\Code\LagomDependancies\src\zziplib\trunk\zzip-0;D:\Jan\Code\LagomDependancies\include\CEGUI;D:\Jan\Code\LagomDependancies\include\OGRE;D:\Jan\Code\LagomDependancies\include\Bullet;$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+    <TargetName>lib$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\..\out\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\..\temp\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <EmbedManifest>false</EmbedManifest>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>fmodex_vc.lib;BulletDynamics_d.lib;cegui_d.lib;OgreRenderSystem_d.lib;ogre_d.lib;OIS_static_d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>ANDROID;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-std=gnu++0x  -fvisibility=hidden -fvisibility-inlines-hidden %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Code\LagomDependancies\bin\Android\Bullet_d.a;C:\Code\LagomDependancies\bin\Android\cegui_d.a;C:\Code\LagomDependancies\bin\Android\ConvexDecomposition_d.a;C:\Code\LagomDependancies\bin\Android\FreeImage_d.a;C:\Code\LagomDependancies\bin\Android\LibJPEG_d.a;C:\Code\LagomDependancies\bin\Android\LibMNG_d.a;C:\Code\LagomDependancies\bin\Android\LibOpenJPEG_d.a;C:\Code\LagomDependancies\bin\Android\LibPNG_d.a;C:\Code\LagomDependancies\bin\Android\LibRaw_d.a;C:\Code\LagomDependancies\bin\Android\LibTIFF_d.a;C:\Code\LagomDependancies\bin\Android\lua_d.a;C:\Code\LagomDependancies\bin\Android\OgreRenderSystem_d.a;C:\Code\LagomDependancies\bin\Android\ogre_d.a;C:\Code\LagomDependancies\bin\Android\OpenEXR_d.a;C:\Code\LagomDependancies\bin\Android\pcre_d.a;C:\Code\LagomDependancies\bin\Android\zlib_d.a;C:\Code\LagomDependancies\bin\Android\zziplib_d.a;C:\Program Files (x86)\FMOD SoundSystem\FMOD Programmers API Android\api\lib\android-9\armeabi\libfmodex.so;C:\boost\boost_1_47_0\android\lib\libboost_thread_pthread-gcc-mt-s-1_47.a;C:\boost\boost_1_47_0\android\lib\libboost_random-gcc-mt-s-1_47.a;C:\boost\boost_1_47_0\android\lib\libboost_date_time-gcc-mt-s-1_47.a;C:\boost\boost_1_47_0\android\lib\libboost_iostreams-gcc-mt-s-1_47.a;C:\AndroidNDK\android-ndk-r6b\platforms\android-9\arch-arm\usr\lib\libGLESv2.so;C:\AndroidNDK\android-ndk-r6b\platforms\android-9\arch-arm\usr\lib\libdl.so;%(AdditionalDependencies)</AdditionalDependencies>
+      <EchoCommandLines>true</EchoCommandLines>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <AntBuild>
+      <AntLibraryName>$(TargetName)</AntLibraryName>
+      <AntBuildPath>$(ProjectDir)/../../ant</AntBuildPath>
+      <AntDeploy>DeployAndRun</AntDeploy>
+    </AntBuild>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>fmodex64_vc.lib;BulletDynamics_d.lib;cegui_d.lib;OgreRenderSystem_d.lib;ogre_d.lib;OIS_static_d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmodex_vc.lib;BulletDynamics.lib;;cegui.lib;OgreRenderSystem.lib;ogre.lib;OIS_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <SetChecksum>true</SetChecksum>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <LinkErrorReporting>QueueForNextLogin</LinkErrorReporting>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>ANDROID;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-std=gnu++0x  -fvisibility=hidden -fvisibility-inlines-hidden %(AdditionalOptions)</AdditionalOptions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmodex_vc.lib;BulletDynamics.lib;;cegui.lib;OgreRenderSystem.lib;ogre.lib;OIS_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <SetChecksum>true</SetChecksum>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <LinkErrorReporting>QueueForNextLogin</LinkErrorReporting>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <AntBuild>
+      <AntLibraryName>$(TargetName)</AntLibraryName>
+      <AntBuildPath>$(ProjectDir)/../../ant</AntBuildPath>
+    </AntBuild>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeaderFile>headers.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(Platform)$(Configuration).pch</PrecompiledHeaderOutputFile>
+      <AdditionalOptions>-Zm256 %(AdditionalOptions)</AdditionalOptions>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmodex64_vc.lib;BulletDynamics.lib;;cegui.lib;OgreRenderSystem.lib;ogre.lib;OIS_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <SetChecksum>true</SetChecksum>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <LinkErrorReporting>QueueForNextLogin</LinkErrorReporting>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

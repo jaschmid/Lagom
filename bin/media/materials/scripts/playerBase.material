@@ -1,0 +1,7 @@
+import * from "default.material"
+
+material playerBase : default
+{
+	set_texture_alias DiffuseMap playerBaseD.png
+	set_texture_alias NormalMap playerBaseN.png
+}

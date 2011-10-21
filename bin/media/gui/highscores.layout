@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<GUILayout>
+  <Window Type="Sunrise/SimpleFrame">
+    <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+    <Property Name="UnifiedAreaRect" Value="{{0.01,0},{0.14,0},{0.99,0},{0.86,0}}" />
+    <Window Type="Sunrise/MultiColumnList" Name="_highscoresRoot" >
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.0,0},{1.0,0},{1.0,0}}" />
+    </Window>
+  </Window>
+</GUILayout>

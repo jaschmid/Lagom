@@ -1,0 +1,178 @@
+#include "newUtils.cg"
+void depth_vs
+(
+   float4 iPosition   : POSITION,
+   
+   uniform float3 iAmbient,
+   uniform float4x4 iWorldViewProj,
+   uniform float4x4 iWorldView,
+   uniform float4x4 iWorld,
+
+   out float4 oViewPos	: TEXCOORD0,
+   out float4 oPosition : POSITION
+) 
+{
+   oPosition = mul(iWorldViewProj, iPosition);
+   
+   float3 worldPos = mul(iWorld, iPosition).xyz;
+   oViewPos.w = length(worldPos.xyz);
+   oViewPos.xyz = mul(iWorldView, iPosition).xyz;			// transform the vertex position to the view space
+}
+
+void depth_ps
+(
+   float4 iViewPos : TEXCOORD0,
+   
+   uniform float cNearClipDistance,
+   uniform float cFarClipDistance, // !!! might be 0 for infinite view projection.
+
+   out float4 oColour		: COLOR0
+)
+{
+   float clipDistance = cFarClipDistance - cNearClipDistance;
+   oColour.xyzw = (length(iViewPos.z) - cNearClipDistance) / clipDistance; // norm to [0, 1]   
+}
+
+void ambient_vs
+(
+   float4 iPosition   : POSITION,
+   float3 iNormal   : NORMAL,
+   float2 iUV      : TEXCOORD0,
+   
+   uniform float3 iAmbient,
+   uniform float4x4 iWorldViewProj,
+   uniform float4x4 iWorldView,
+   uniform float4x4 iWorld,
+   uniform float4x4 iWorldIT,
+
+   out float2 oUV		: TEXCOORD0,
+   out float3 oAmbient	: TEXCOORD1,
+   out float4 oViewPos	: TEXCOORD2,
+   out float3 oNormal	: TEXCOORD3,
+   out float3 oTangent   : TEXCOORD4,
+   out float3 oBinormal   : TEXCOORD5,
+   out float4 oPosition : POSITION
+) 
+{
+   oPosition = mul(iWorldViewProj, iPosition);
+   oAmbient = iAmbient;
+   oUV = iUV;
+   
+   float3 worldPos = mul(iWorld, iPosition).xyz;
+   oViewPos.w = length(worldPos.xyz);
+   oViewPos.xyz = mul(iWorldView, iPosition).xyz;			// transform the vertex position to the view space
+   oNormal = normalize(mul(iWorldIT, float4(iNormal,0.0f)).xyz);
+   oTangent = normalize(-float3(abs(iNormal.y) + abs(iNormal.z), abs(iNormal.x), 0));
+   oBinormal = normalize(cross(oTangent,oNormal));
+}
+
+void ambient_ps
+(
+   float2 iUV      : TEXCOORD0,
+   float3 iAmbient : TEXCOORD1,
+   float4 iViewPos : TEXCOORD2,
+   float3 iNormal  : TEXCOORD3,
+   float3 iTangent  : TEXCOORD4,
+   float3 iBinormal : TEXCOORD5,
+
+   uniform sampler2D dMap   : TEXUNIT0,
+   uniform sampler2D nMap   : TEXUNIT1,
+   
+   uniform float3 static_glow_amount,
+   uniform float4 glow_pulse_amount_time,
+   uniform float2 iScale,
+   uniform float2 iScroll,
+   uniform float cNearClipDistance,
+   uniform float cFarClipDistance, // !!! might be 0 for infinite view projection.
+
+   out float4 oColour		: COLOR0
+)
+{
+   iUV.x = (iUV.x + iScroll.x)*iScale.x;
+   iUV.y = (iUV.y + iScroll.y)*iScale.y;
+
+   float4 diffuse = tex2D(dMap, iUV);
+   oColour = float4(iAmbient * diffuse.xyz * diffuse.www,1);
+
+   float pulseLevel = max(sin( iViewPos.w/10.0f - glow_pulse_amount_time.w/250.0f )*1.5f-0.5f,0.0f) / (iViewPos.w*iViewPos.w)*1000.0f;
+   float3 glowAmount = pulseLevel * glow_pulse_amount_time.xyz + static_glow_amount.xyz;
+
+   oColour += float4( glowAmount * (1.0f-diffuse.w) , 0.0f );
+}
+
+void diffuse_vs
+(
+   float4 iPosition   : POSITION,
+   float4 iNormal   : NORMAL,
+   float2 iUV      : TEXCOORD0,
+
+   uniform float4x4 iWorld,
+        uniform float4x4 iWorldIT,
+   uniform float4x4 iWorldViewProj,
+   uniform float4x4 iTextViewProj,
+
+   out float2 oUV      : TEXCOORD0,
+   out float4 oWorldPos   : TEXCOORD1,
+   out float3 oNormal   : TEXCOORD2,
+   out float3 oTangent   : TEXCOORD3,
+   out float3 oBinormal   : TEXCOORD4,
+   out float4 oShadowUV   : TEXCOORD5,
+
+   out float4 oPosition   : POSITION
+)
+{
+   oWorldPos = mul(iWorld,iPosition);
+   oPosition = mul(iWorldViewProj,iPosition);
+   oNormal = normalize(mul(iWorldIT, iNormal).xyz);
+   oUV = iUV;
+
+   oTangent = normalize(-float3(abs(iNormal.y) + abs(iNormal.z), abs(iNormal.x), 0));
+   oBinormal = normalize(cross(oTangent,oNormal));
+
+   oShadowUV = mul(iTextViewProj, oWorldPos);
+   oShadowUV = oShadowUV / oShadowUV.w;
+}
+
+void diffuse_ps
+(
+   float2 iUV       : TEXCOORD0,
+   float4 iWorldPos : TEXCOORD1,
+   float3 iNormal   : TEXCOORD2,
+   float3 iTangent  : TEXCOORD3,
+   float3 iBinormal : TEXCOORD4,
+   float4 iShadowUV : TEXCOORD5,
+
+   uniform float2 iScale,
+   uniform float2 iScroll,
+   uniform float3 iLightDir,
+   uniform float3 iLightDif,
+   
+   uniform sampler2D dMap   : TEXUNIT0,
+   uniform sampler2D nMap   : TEXUNIT1,
+
+   uniform float4 iDepthRange,
+   uniform float4 iInvShMapSize,
+
+   out float4 oColour   : COLOR0,
+   out float4 oNormalDepth	: COLOR1, 	// normal + linear depth [0, 1]
+   out float4 oViewPos		: COLOR2  		// view space position
+)
+{
+
+   float3 lightDir = iLightDir;
+
+   iUV.x = (iUV.x + iScroll.x)*iScale.x;
+   iUV.y = (iUV.y + iScroll.y)*iScale.y;
+
+   float3 normalTex = (tex2D(nMap,iUV).rgb - 0.5)*2;
+   iNormal = normalize(normalTex.x * iTangent - normalTex.y * iBinormal + normalTex.z * iNormal);
+
+   float nDotL = max(dot(-lightDir,iNormal),0);
+   float4 difTex = tex2D(dMap,iUV);
+
+   float3 light = iLightDif * nDotL * difTex.xyz * difTex.a;
+
+   oColour = float4(light, 1);
+   oNormalDepth = float4(0.0f,0.0f,0.0f,0.0f);
+   oViewPos = float4(0.0f,0.0f,0.0f,0.0f);
+}

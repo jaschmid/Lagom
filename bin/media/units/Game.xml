@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<Game>
+  <PulseSound volume="30.0f">pulse.ogg</PulseSound>
+  <DrainFalloffCoefficients>0.0f 0.00f 1.0f</DrainFalloffCoefficients>
+  <AmbientLightColor>0.6 0.6 0.6 1.0</AmbientLightColor>
+  <DirectionalLightColor>0.5 0.5 0.5 1.0</DirectionalLightColor>
+  <EnergyExplosionDuration>800.0f</EnergyExplosionDuration>
+  <EnergyExplosionSizeFactor>.8f</EnergyExplosionSizeFactor>
+  <GameOverDelay>1000.0f</GameOverDelay>
+  <ExplosionParticleLife>2000.0f</ExplosionParticleLife>
+  <ExplosionParticleVelocity>10.0f</ExplosionParticleVelocity>
+  <PhysicsStep>16.66666666</PhysicsStep>
+  <PhysicsIterations>3</PhysicsIterations>
+  <ScoreUpdateVisibilityTime>1000.0f</ScoreUpdateVisibilityTime>
+  <OutsideUnitPushSpeed>5.0f</OutsideUnitPushSpeed>
+  <WarningYOffset>1.0f</WarningYOffset>
+  <WarningSound volume="2.0f">warningPing.ogg</WarningSound>
+  <WarningMinEnergy>1000.0f</WarningMinEnergy>
+  <WarningMaxEnergy>2000.0f</WarningMaxEnergy>
+  <WarningPingTime>1000.0f</WarningPingTime>
+  <GameBeginFade>1000.0f</GameBeginFade>
+  <GameEndFade>1000.0f</GameEndFade>
+  <CameraVibrateFrequency>10.0f</CameraVibrateFrequency>
+  <CameraVibrateFactor>0.0001f</CameraVibrateFactor>
+  <CameraVibrateDecaySpeed>.75f</CameraVibrateDecaySpeed>
+  <CameraVibrateRelativeDecaySpeed>.15f</CameraVibrateRelativeDecaySpeed>
+</Game>

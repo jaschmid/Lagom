@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<obelisk>
+  <MovementSpeed>6.0f</MovementSpeed>
+  <GroundOffset>1.7125443</GroundOffset>
+  <RotationSpeed>2.0f</RotationSpeed>
+  <CollisionRange>1.53</CollisionRange>
+  <Health>3500.0f</Health>
+  <HealthRegeneration>100.0f</HealthRegeneration>
+  <Energy>24000.0f</Energy>
+  <EnergyDischarge>-3200.0f</EnergyDischarge>
+  <EnergyDischargeSize>9.0f</EnergyDischargeSize>
+  <EnergyDischargeMaterial>NegativeExplosion</EnergyDischargeMaterial>
+  <DeathSound>smallExplosion.ogg</DeathSound>
+  <DeathParticleSize>3</DeathParticleSize>
+  <Mesh>Obelisk.mesh</Mesh>
+  <Material>Obelisk</Material>
+  <MeshScale>1.8f 1.8f 1.8f</MeshScale>
+  <PointValue>40.0f</PointValue>
+  <ScoreValue>400.0f</ScoreValue>
+  <ConstructionCooldown>1000.0f</ConstructionCooldown>
+  <RetargetCooldown>400.0f</RetargetCooldown>
+  <AttackRange>30.0f</AttackRange>
+  <LaserThickness>1.0f</LaserThickness>
+  <LaserDamagePerSecond>6000.0f</LaserDamagePerSecond>
+  <LaserDuration>3000.0f</LaserDuration>
+  <LaserChargeTime>3000.0f</LaserChargeTime>
+  <LaserMaterialPositive>PositiveLaser</LaserMaterialPositive>
+  <LaserMaterialNegative>NegativeLaser</LaserMaterialNegative>
+  <LaserChargeOffset>0.0f 1.5f 0.0f</LaserChargeOffset>
+  <LaserChargeSizeMin>.5f</LaserChargeSizeMin>
+  <LaserChargeSizeMax>1.5f</LaserChargeSizeMax>
+  <LaserChargePositive>PositiveExplosion</LaserChargePositive>
+  <LaserChargeNegative>NegativeExplosion</LaserChargeNegative>
+  <LaserChargeSound volume="1.4f">laserCharge.ogg</LaserChargeSound>
+  <LaserShootSound volume="0.8f">laserShoot.ogg</LaserShootSound>
+</obelisk>

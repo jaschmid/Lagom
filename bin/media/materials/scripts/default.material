@@ -1,0 +1,90 @@
+material default
+{
+   technique default
+   {
+	  scheme default
+      pass Ambient
+      {
+         ambient  1 1 1
+         diffuse  0 0 0
+         emissive 0 0 0
+		 light_scissor off
+		 light_clip_planes off
+		 illumination_stage ambient
+
+         vertex_program_ref ambient_vs
+         {
+			param_named_auto iWorldViewProj worldviewproj_matrix
+			param_named_auto iWorldView worldview_matrix
+         }
+
+         fragment_program_ref ambient_ps
+         {
+            param_named_auto static_glow_amount custom 0
+            param_named_auto glow_pulse_amount_time custom 1
+            param_named iScale float2 1 1
+            param_named iScroll float2 0 0
+         }
+
+         texture_unit
+         {
+			texture_alias DiffuseMap
+         }
+
+         texture_unit
+         {
+			texture_alias NormalMap
+         }
+      }
+
+      pass Directional
+      {
+         ambient  0 0 0
+         diffuse  1 1 1
+
+         max_lights 8
+         scene_blend add
+		 illumination_stage per_light
+         iteration once_per_light directional
+
+         vertex_program_ref diffuse_directional_normal_shadow_vs
+         {
+         }
+
+         fragment_program_ref diffuse_directional_normal_shadow_ps
+         {
+            param_named iScale float2 1 1
+            param_named iScroll float2 0 0
+         }
+
+         texture_unit
+         {
+			texture_alias DiffuseMap
+         }
+
+         texture_unit
+         {
+			texture_alias NormalMap
+         }
+      }
+   }
+
+   technique depth
+   {
+	  scheme depth
+      pass
+      {
+         vertex_program_ref depth_vs
+         {
+			param_named_auto iWorldViewProj worldviewproj_matrix
+			param_named_auto iWorldView worldview_matrix
+         }
+
+         fragment_program_ref depth_ps
+         {
+			param_named_auto cNearClipDistance near_clip_distance
+			param_named_auto cFarClipDistance far_clip_distance
+         }
+      }
+   }
+}

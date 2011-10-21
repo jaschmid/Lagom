@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUIScheme Name="SunriseDarkBlue">
+	<Imageset Filename="SunriseDarkBlue.imageset" />
+	<Imageset Filename="LargeFont.imageset" />
+	<Imageset Filename="MediumFont.imageset" />
+	<Imageset Filename="SmallFont.imageset" />
+	<Font Filename="LargeFont.font" />
+	<Font Filename="MediumFont.font" />
+	<Font Filename="SmallFont.font" />
+	<LookNFeel Filename="SunriseDarkBlue.looknfeel" />
+	<WindowRendererSet Filename="CEGUIFalagardWRBase" />
+	<FalagardMapping WindowType="Sunrise/Button" TargetType="CEGUI/PushButton" Renderer="Falagard/Button" LookNFeel="Sunrise/Button" />
+	<FalagardMapping WindowType="Sunrise/IconButton" TargetType="CEGUI/PushButton" Renderer="Falagard/Button" LookNFeel="Sunrise/IconButton" />
+	<FalagardMapping WindowType="Sunrise/Checkbox" TargetType="CEGUI/Checkbox" Renderer="Falagard/ToggleButton" LookNFeel="Sunrise/Checkbox" />	
+	<FalagardMapping WindowType="Sunrise/RadioButton" TargetType="CEGUI/RadioButton" Renderer="Falagard/ToggleButton" LookNFeel="Sunrise/RadioButton" />
+	<FalagardMapping WindowType="Sunrise/SimpleFrame" TargetType="DefaultWindow" Renderer="Falagard/Default" LookNFeel="Sunrise/SimpleFrame" />
+	<FalagardMapping WindowType="Sunrise/SimpleLabel" TargetType="DefaultWindow" Renderer="Falagard/Default" LookNFeel="Sunrise/SimpleLabel" />
+	<FalagardMapping WindowType="Sunrise/FrameWindow" TargetType="CEGUI/FrameWindow" Renderer="Falagard/FrameWindow" LookNFeel="Sunrise/FrameWindow" />
+	<FalagardMapping WindowType="Sunrise/Titlebar" TargetType="CEGUI/Titlebar" Renderer="Falagard/Titlebar" LookNFeel="Sunrise/Titlebar" />
+	<FalagardMapping WindowType="Sunrise/CloseButton" TargetType="CEGUI/PushButton"  Renderer="Falagard/Button" LookNFeel="Sunrise/CloseButton" />
+	<FalagardMapping WindowType="Sunrise/Editbox" TargetType="CEGUI/Editbox" Renderer="Falagard/Editbox" LookNFeel="Sunrise/Editbox" />
+	<FalagardMapping WindowType="Sunrise/VerticalScrollbar" TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="Sunrise/VerticalScrollbar" />
+	<FalagardMapping WindowType="Sunrise/HorizontalScrollbar" TargetType="CEGUI/Scrollbar" Renderer="Falagard/Scrollbar" LookNFeel="Sunrise/HorizontalScrollbar" />
+	<FalagardMapping WindowType="Sunrise/VerticalScrollbarThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Sunrise/VerticalScrollbarThumb" />
+	<FalagardMapping WindowType="Sunrise/HorizontalScrollbarThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Sunrise/HorizontalScrollbarThumb" />
+	<FalagardMapping WindowType="Sunrise/MultiLineEditbox" TargetType="CEGUI/MultiLineEditbox" Renderer="Falagard/MultiLineEditbox" LookNFeel="Sunrise/MultiLineEditbox" />
+	<FalagardMapping WindowType="Sunrise/ComboDropList" TargetType="CEGUI/ComboDropList" Renderer="Falagard/Listbox" LookNFeel="Sunrise/ComboDropList" />
+	<FalagardMapping WindowType="Sunrise/Combobox" TargetType="CEGUI/Combobox" Renderer="Falagard/Default" LookNFeel="Sunrise/Combobox" />
+	<FalagardMapping WindowType="Sunrise/Listbox" TargetType="CEGUI/Listbox" Renderer="Falagard/Listbox" LookNFeel="Sunrise/Listbox" />
+	<FalagardMapping WindowType="Sunrise/ListboxItem" TargetType="CEGUI/ItemEntry" Renderer="Falagard/ItemEntry" LookNFeel="Sunrise/ListboxItem" />
+	<FalagardMapping WindowType="Sunrise/ItemListbox" TargetType="CEGUI/ItemListbox" Renderer="Falagard/ItemListbox" LookNFeel="Sunrise/ItemListbox" />
+	<FalagardMapping WindowType="Sunrise/ProgressBar" TargetType="CEGUI/ProgressBar" Renderer="Falagard/ProgressBar" LookNFeel="Sunrise/ProgressBar" />
+	<FalagardMapping WindowType="Sunrise/HorizontalSlider" TargetType="CEGUI/Slider" Renderer="Falagard/Slider"  LookNFeel="Sunrise/HorizontalSlider" />
+	<FalagardMapping WindowType="Sunrise/HorizontalSliderThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Sunrise/HorizontalSliderThumb" />
+	<FalagardMapping WindowType="Sunrise/VerticalSlider" TargetType="CEGUI/Slider" Renderer="Falagard/Slider"  LookNFeel="Sunrise/VerticalSlider" />
+	<FalagardMapping WindowType="Sunrise/VerticalSliderThumb" TargetType="CEGUI/Thumb" Renderer="Falagard/Button" LookNFeel="Sunrise/VerticalSliderThumb" />
+	<FalagardMapping WindowType="Sunrise/Spinner" TargetType="CEGUI/Spinner" Renderer="Falagard/Default" LookNFeel="Sunrise/Spinner" />
+	<FalagardMapping WindowType="Sunrise/Menubar" TargetType="CEGUI/Menubar" Renderer="Falagard/Menubar" LookNFeel="Sunrise/Menubar" />
+	<FalagardMapping WindowType="Sunrise/PopupMenu" TargetType="CEGUI/PopupMenu" Renderer="Falagard/PopupMenu" LookNFeel="Sunrise/PopupMenu" />
+	<FalagardMapping WindowType="Sunrise/MenuItem" TargetType="CEGUI/MenuItem" Renderer="Falagard/MenuItem" LookNFeel="Sunrise/MenuItem" />
+	<FalagardMapping WindowType="Sunrise/ListHeader" TargetType="CEGUI/ListHeader" Renderer="Falagard/ListHeader" LookNFeel="Sunrise/ListHeader" />
+	<FalagardMapping WindowType="Sunrise/ListHeaderSegment" TargetType="CEGUI/ListHeaderSegment" Renderer="Falagard/ListHeaderSegment" LookNFeel="Sunrise/ListHeaderSegment" />
+	<FalagardMapping WindowType="Sunrise/MultiColumnList" TargetType="CEGUI/MultiColumnList" Renderer="Falagard/MultiColumnList" LookNFeel="Sunrise/MultiColumnList" />
+	<FalagardMapping WindowType="Sunrise/Tooltip" TargetType="CEGUI/Tooltip" Renderer="Falagard/Tooltip" LookNFeel="Sunrise/Tooltip" />
+	<FalagardMapping WindowType="Sunrise/ScrollablePane" TargetType="CEGUI/ScrollablePane" Renderer="Falagard/ScrollablePane" LookNFeel="Sunrise/ScrollablePane" />
+	<FalagardMapping WindowType="Sunrise/StaticImage" TargetType="DefaultWindow" Renderer="Falagard/StaticImage" LookNFeel="Sunrise/StaticImage" />
+	<FalagardMapping WindowType="Sunrise/StaticText" TargetType="DefaultWindow" Renderer="Falagard/StaticText" LookNFeel="Sunrise/StaticText" />
+	<FalagardMapping WindowType="Sunrise/GroupBox" TargetType="CEGUI/GroupBox" Renderer="Falagard/Default" LookNFeel="Sunrise/GroupBox" />
+	<FalagardMapping WindowType="Sunrise/TabButton" TargetType="CEGUI/TabButton" Renderer="Falagard/TabButton" LookNFeel="Sunrise/TabButton" />
+	<FalagardMapping WindowType="Sunrise/TabControl" TargetType="CEGUI/TabControl" Renderer="Falagard/TabControl" LookNFeel="Sunrise/TabControl" />
+	<FalagardMapping WindowType="Sunrise/TabContentPane" TargetType="DefaultWindow" Renderer="Falagard/Default" LookNFeel="Sunrise/TabContentPane" />
+	<FalagardMapping WindowType="Sunrise/TabButtonPane" TargetType="DefaultWindow" Renderer="Falagard/Default" LookNFeel="Sunrise/TabButtonPane" />
+</GUIScheme>

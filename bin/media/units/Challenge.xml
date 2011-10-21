@@ -1,0 +1,364 @@
+<?xml version="1.0" ?>
+<Challenge>
+  <MinStage>0</MinStage>
+  <MaxStage>10</MaxStage>
+  <StageGraceTime>3000.0f</StageGraceTime>
+  <GameStartGraceTime>2000.0f</GameStartGraceTime>
+  <UnitSpacing>10.0f 8.0f 10.0f</UnitSpacing>
+  <WaveSpawnDistance>90.0f</WaveSpawnDistance>
+  <IncomingArrowTravelTime>3000.0f</IncomingArrowTravelTime>
+  <IncomingArrowHeight>4.0f</IncomingArrowHeight>
+  <IncomingArrowSize>3.0f</IncomingArrowSize>
+  <RandomTipCooldown>10000.0f</RandomTipCooldown>
+  <RandomTipTime>5000.0f</RandomTipTime>
+  <StageCompleteSound>stageComplete.ogg</StageCompleteSound>
+  <Stage value="0">
+    <Difficulty>0</Difficulty>
+    <WaveSpawnTime>0.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>0</NumberOfSpawns>
+    <RandomSpawns></RandomSpawns>
+    <RestrictPlayer>true</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <Duration>-1.0f</Duration>
+    <ScoreMultiplier>0.1f</ScoreMultiplier>
+    <EnergyDrainFactor>0.2f</EnergyDrainFactor>
+    <Spawn name="Spawn1Cube">
+      <Trigger type="time" time="0.0f"/>
+      <Unit name="cubeUnit" angle="1.3f" count="1"/>
+      <Tutorial type="buildUnit" location="absolute" angle="1.3f" distance="20"  tolerance="5" unit="cubeUnit" count="1" icon="cubeX1">
+        Welcome to Lagom.\n
+        In Lagom you have to defend your base from enemies.\n
+        You construct units to vanquish your foes.\n
+        Drag and drop a Cube from your base to build it.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="Spawn1Cube2">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Cube"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="cubeUnit" angle="-1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="Spawn3Cubes">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Cube2"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="cubeUnit" angle="1.3f" count="3"/>
+    </Spawn>
+    <Spawn name="TutorialBuildBlender">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn3Cubes"/>
+        <Trigger type="time" time="4000.0f"/>
+      </Trigger>
+      <EnergyDrainFactor>0.3f</EnergyDrainFactor>
+      <Tutorial type="buildUnit" location="absolute" angle="1.3f" distance="20"  tolerance="5" unit="blender" count="1" icon="blenderX1">
+        Three enemy Cubes are attacking your base!\n
+        One cube alone will die miserably, It needs help.\n
+        You can click anywhere on the screen to change the unit to construct.\n
+        Construct a Blender to blend the enemy Cubes.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="Spawn5Cubes">
+      <Trigger type="and">
+        <Trigger type="previous" name="TutorialBuildBlender"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="cubeUnit" angle="1.3f" count="5"/>
+    </Spawn>
+    <Spawn name="Spawn1Obelisk">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn5Cubes"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="obelisk" angle="-1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="TutorialBuild3Cubes">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Obelisk"/>
+        <Trigger type="time" time="4000.0f"/>
+      </Trigger>
+      <EnergyDrainFactor>0.4f</EnergyDrainFactor>
+      <Tutorial type="buildUnit" location="absolute" angle="-1.3f" distance="30" tolerance="10" unit="cubeUnit" count="3" icon="cubeX3">
+        Now an Obelisk is attacking you.\n
+        Blenders are weak against an Obelisk's Laser.\n
+        Build three Cubes to overwhelm the Obelisk.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="lowEnergyBlender">
+      <Trigger type="and">
+        <Trigger type="lowenergy" unit="blender"/>
+        <Trigger type="not">
+          <Trigger type="or">
+            <Trigger type="previous" name="lowEnergyCube"/>
+            <Trigger type="previous" name="lowEnergyObelisk"/>
+          </Trigger>  
+        </Trigger>
+      </Trigger>
+      <Tutorial type="buildUnit" unit="obelisk" location="low_energy" target_unit="blender" tolerance="15" count="2" icon="obeliskX2">
+        Your blender is about to run out of colour.\n
+        When your units go dark they will attack you.\n
+        So, do not build too many units.\n
+        Build two obelisks to destroy it.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="lowEnergyObelisk">
+      <Trigger type="and">
+        <Trigger type="lowenergy" unit="obelisk"/>
+        <Trigger type="not">
+          <Trigger type="or">
+            <Trigger type="previous" name="lowEnergyCube"/>
+            <Trigger type="previous" name="lowEnergyBlender"/>
+          </Trigger>
+        </Trigger>
+      </Trigger>
+      <Tutorial type="buildUnit" unit="cubeUnit" location="low_energy" target_unit="obelisk" tolerance="15" count="3" icon="cubeX3">
+        One of your obelisks is about to run out of colour.\n
+        When your units go dark they will attack you.\n
+        So, do not build too many units.\n
+        Build three cubes to destroy it.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="lowEnergyCube">
+      <Trigger type="and">
+        <Trigger type="lowenergy" unit="cubeUnit"/>
+        <Trigger type="not">
+          <Trigger type="or">
+            <Trigger type="previous" name="lowEnergyBlender"/>
+            <Trigger type="previous" name="lowEnergyObelisk"/>
+          </Trigger>
+        </Trigger>
+      </Trigger>
+      <Tutorial type="buildUnit" unit="blender" location="low_energy" target_unit="cubeUnit" tolerance="10" count="1" icon="blenderX1">
+        One of your cubes is about to run out of colour.\n
+        When your units go dark they will attack you.\n
+        So, do not build too many units.\n
+        Build a blender to destroy it.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="lowHealthBase">
+      <Trigger type="low_health" unit="playerBase" health=".5f"/>
+      <Tutorial type="buildUnit" location="any" tolerance="15" count="3" icon="lowHealth">
+        Your base is taking damage from the enemy!\n
+        The energy pulses will increase their frequency to match the damage.\n
+        Build units to defend yourself!
+      </Tutorial>
+    </Spawn>
+    <Spawn name="FinishTutorial">
+      <EnergyDrainFactor>.0f</EnergyDrainFactor>
+      <Trigger type="and">
+        <Trigger type="or">
+          <Trigger type="previous" name="lowEnergyBlender"/>
+          <Trigger type="previous" name="lowEnergyObelisk"/>
+          <Trigger type="previous" name="lowEnergyCube"/>
+        </Trigger>
+        <Trigger type="previous" name="Spawn1Blender2"/>
+        <Trigger type="time" time="3000.0f"/>
+        <Trigger type="noenemy"/>
+      </Trigger>
+      <Tutorial type="time" time="12000.0f" complete_stage="true" icon="congratualations">
+        You have successfully completed the Lagom tutorial.\n
+        The game will now continue in stage 1.\n
+        To replay the tutorial, start a game in stage 0.\n
+        Good luck!
+      </Tutorial>
+    </Spawn>
+    <Spawn name="Spawn1Obelisk2">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Obelisk"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="obelisk" angle="1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="Spawn1Blender">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Obelisk2"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="blender" angle="-1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="TutorialBuildObelisk">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Blender"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <EnergyDrainFactor>.5f</EnergyDrainFactor>
+      <Tutorial type="buildUnit" location="absolute" angle="-1.3f" distance="30" tolerance="10" unit="obelisk" count="2" icon="obeliskX2">
+        A blender is attacking you.\n
+        Blenders can be killed quickly by the focused laser beam of an obelisk.\n
+        Build two obelisks to destroy it.
+      </Tutorial>
+    </Spawn>
+    <Spawn name="Spawn1Blender2">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Blender"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="blender" angle="1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="Spawn3Cubes2">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Blender2"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="cubeUnit" angle="-1.3f" count="3"/>
+    </Spawn>
+    <Spawn name="Spawn1Blender3">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn3Cubes2"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="blender" angle="1.3f" count="1"/>
+    </Spawn>
+    <Spawn name="Spawn3Cubes3">
+      <Trigger type="and">
+        <Trigger type="previous" name="Spawn1Blender3"/>
+        <Trigger type="noenemy"/>
+        <Trigger type="time" time="3000.0f"/>
+      </Trigger>
+      <Unit name="cubeUnit" angle="-1.3f" count="3"/>
+    </Spawn>
+  </Stage>
+  <Stage value="1">
+    <Difficulty>30</Difficulty>
+    <WaveSpawnTime>15000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>true</RandomTipsEnabled>
+    <NumberOfSpawns>1</NumberOfSpawns>
+    <Duration>59000.0f</Duration>
+    <RandomSpawns>cubeUnit</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>0.1f</ScoreMultiplier>
+    <EnergyDrainFactor>.5f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="2">
+    <Difficulty>60</Difficulty>
+    <WaveSpawnTime>14500.0f</WaveSpawnTime>
+    <RandomTipsEnabled>true</RandomTipsEnabled>
+    <NumberOfSpawns>1</NumberOfSpawns>
+    <Duration>72000.0f</Duration>
+    <RandomSpawns>cubeUnit;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>0.2f</ScoreMultiplier>
+    <EnergyDrainFactor>.75f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="3">
+    <Difficulty>100</Difficulty>
+    <WaveSpawnTime>14000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>true</RandomTipsEnabled>
+    <NumberOfSpawns>1</NumberOfSpawns>
+    <Duration>139000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>0.4f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="4">
+    <Difficulty>125</Difficulty>
+    <WaveSpawnTime>14000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>true</RandomTipsEnabled>
+    <NumberOfSpawns>1</NumberOfSpawns>
+    <Duration>167000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>.7f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="5">
+    <Difficulty>150</Difficulty>
+    <WaveSpawnTime>13500.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>1</NumberOfSpawns>
+    <Duration>270000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>1.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="6">
+    <Difficulty>175</Difficulty>
+    <WaveSpawnTime>13000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>2</NumberOfSpawns>
+    <Duration>324000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>2.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="7">
+    <Difficulty>200</Difficulty>
+    <WaveSpawnTime>13000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>2</NumberOfSpawns>
+    <Duration>324000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>false</SpawnMultiType>
+    <ScoreMultiplier>3.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="8">
+    <Difficulty>250</Difficulty>
+    <WaveSpawnTime>13000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>2</NumberOfSpawns>
+    <Duration>389000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>true</SpawnMultiType>
+    <ScoreMultiplier>4.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="9">
+    <Difficulty>300</Difficulty>
+    <WaveSpawnTime>12500.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>3</NumberOfSpawns>
+    <Duration>437000.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>true</SpawnMultiType>
+    <ScoreMultiplier>6.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <Stage value="10">
+    <Difficulty>350</Difficulty>
+    <WaveSpawnTime>12000.0f</WaveSpawnTime>
+    <RandomTipsEnabled>false</RandomTipsEnabled>
+    <NumberOfSpawns>4</NumberOfSpawns>
+    <Duration>-1.0f</Duration>
+    <RandomSpawns>cubeUnit;blender;obelisk</RandomSpawns>
+    <RestrictPlayer>false</RestrictPlayer>
+    <SpawnMultiType>true</SpawnMultiType>
+    <ScoreMultiplier>10.0f</ScoreMultiplier>
+    <EnergyDrainFactor>1.0f</EnergyDrainFactor>
+  </Stage>
+  <RandomTip>You can use cubes to lure enemies around.</RandomTip>
+  <RandomTip>Enemies will attack the nearest target.</RandomTip>
+  <RandomTip>Beware parking units next to your base.</RandomTip>
+  <RandomTip>Adjust your initial stage if its easy.</RandomTip>
+  <RandomTip>You can disable these tips in the options.</RandomTip>
+  <RandomTip>Incoming arrow sizes are meaningful.</RandomTip>
+  <RandomTip>Blenders effectively blend Cubes.</RandomTip>
+  <RandomTip>Obelisks effectively fry Blenders.</RandomTip>
+  <RandomTip>Cubes effectively overwhelm Obelisks.</RandomTip>
+  <RandomTip>Obelisks will recharge when switching targets.</RandomTip>
+  <EndGameTip>Do not build too many units!</EndGameTip>
+  <EndGameTip>You get more points in higher stages.</EndGameTip>
+</Challenge>

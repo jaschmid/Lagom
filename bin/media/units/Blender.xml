@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<blender>
+  <MovementSpeed>5.2f</MovementSpeed>
+  <GroundOffset>2.9834806</GroundOffset>
+  <RotationSpeed>2.0f</RotationSpeed>
+  <CollisionRange>3.185666</CollisionRange>
+  <Health>18000.0f</Health>
+  <HealthRegeneration>0.0f</HealthRegeneration>
+  <Energy>24000.0f</Energy>
+  <EnergyDischarge>-4800.0f</EnergyDischarge>
+  <EnergyDischargeSize>16.0f</EnergyDischargeSize>
+  <EnergyDischargeMaterial>NegativeExplosion</EnergyDischargeMaterial>
+  <DeathSound>smallExplosion.ogg</DeathSound>
+  <DeathParticleSize>4</DeathParticleSize>
+  <Mesh>Blender.mesh</Mesh>
+  <Material>Blender</Material>
+  <MeshScale>2.0f 2.0f 2.0f</MeshScale>
+  <PointValue>60.0f</PointValue>
+  <ScoreValue>600.0f</ScoreValue>
+  <RetargetCooldown>400.0f</RetargetCooldown>
+  <ConstructionCooldown>1500.0f</ConstructionCooldown>
+  <PulseDamagePerSecond>1000.0f</PulseDamagePerSecond>
+  <PulseFrequency>500.0f</PulseFrequency>
+  <PulseRange>5.0f</PulseRange>
+  <PulseMaterialPositive>BlenderBladesPositive</PulseMaterialPositive>
+  <PulseMaterialNegative>BlenderBladesNegative</PulseMaterialNegative>
+  <PulseDamageSound volume="1.4f">bladeLoop.ogg</PulseDamageSound>
+</blender>

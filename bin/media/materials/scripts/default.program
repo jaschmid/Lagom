@@ -1,0 +1,80 @@
+vertex_program depth_vs cg
+{
+    source newLighting.cg
+    profiles vs_2_x arbvp1
+    entry_point depth_vs
+
+    default_params
+    {
+        param_named_auto iWorldViewProj worldviewproj_matrix
+        param_named_auto iWorld world_matrix
+    }
+}
+
+fragment_program depth_ps cg
+{
+    source newLighting.cg
+    profiles ps_2_x arbfp1
+    entry_point depth_ps
+}
+
+vertex_program ambient_vs cg
+{
+    source newLighting.cg
+    profiles vs_2_x arbvp1
+    entry_point ambient_vs
+
+    default_params
+    {
+        param_named_auto iAmbient ambient_light_colour
+        param_named_auto iWorldViewProj worldviewproj_matrix
+        param_named_auto iWorldIT inverse_transpose_world_matrix
+        param_named_auto iWorld world_matrix
+    }
+}
+
+fragment_program ambient_ps cg
+{
+    source newLighting.cg
+    profiles ps_2_x arbfp1
+    entry_point ambient_ps
+
+    default_params
+    {
+		param_named      static_glow_amount			float3   0 0 0
+		param_named      glow_pulse_amount_time		float4   0 0 0 0
+	}
+}
+
+vertex_program diffuse_directional_normal_shadow_vs cg
+{
+   source newLighting.cg
+   profiles vs_2_x arbvp1
+   entry_point diffuse_vs
+
+   compile_arguments -D_DIRECTIONAL=1 -D_POINT=0 -D_SPOTLIGHT=0 -D_SPECULAR=0 -D_NORMAL=1 -D_SHADOWS=1
+
+   default_params
+   {
+   
+      param_named_auto iWorld world_matrix
+             param_named_auto iWorldIT inverse_transpose_world_matrix
+      param_named_auto iWorldViewProj worldviewproj_matrix
+      param_named_auto iTextViewProj texture_viewproj_matrix
+   }
+}
+
+fragment_program diffuse_directional_normal_shadow_ps cg
+{
+   source newLighting.cg
+   profiles ps_2_x arbfp1
+   entry_point diffuse_ps
+
+   compile_arguments -D_DIRECTIONAL=1 -D_POINT=0 -D_SPOTLIGHT=0 -D_SPECULAR=1 -D_NORMAL=1 -D_SHADOWS=1
+
+   default_params
+   {
+      param_named_auto iLightDir light_direction 0
+      param_named_auto iLightDif light_diffuse_colour 0
+   }
+}

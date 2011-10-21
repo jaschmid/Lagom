@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GameStuff">
+      <UniqueIdentifier>{eb2c865e-d95d-4995-96ee-e9f2e976da59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStuff">
+      <UniqueIdentifier>{14be7c76-2644-4e1d-a064-ceb1cc25e6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{c539a31c-4ee5-4e09-8d48-73548114c12e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials\SSAO">
+      <UniqueIdentifier>{82f6437d-7660-46ea-a73a-e930704420cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TinyXML">
+      <UniqueIdentifier>{1cb42d6c-1ee9-4e35-bd42-46c07b0b70e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TinyXML">
+      <UniqueIdentifier>{e8a74896-b079-4218-8981-0d698e38f032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{36f4bf0e-7ccf-4e7d-aeb1-747537b50223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{40321995-7044-4cfe-af11-e46851f7f6ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Gorilla">
+      <UniqueIdentifier>{909b1e92-5d8c-4263-95c4-9134bd2f3936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Gorilla">
+      <UniqueIdentifier>{79b80f5b-e172-4a36-a02e-56f6a8cb7f8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameConfig">
+      <UniqueIdentifier>{9cb9ec22-3493-4256-a19a-d0a623d2d99f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FrameLimiter">
+      <UniqueIdentifier>{6b92a23b-f132-4c11-9b0a-75eb41a07cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FrameLimiter">
+      <UniqueIdentifier>{bf09db50-4134-463e-9038-942a0fa41743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Android">
+      <UniqueIdentifier>{1d9868c7-419d-452f-a31d-454b9a68cdb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Android\Java">
+      <UniqueIdentifier>{af3d9912-2daf-4a0d-9f0c-a2a1a121e5b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Android\jni">
+      <UniqueIdentifier>{8a4bc76a-2aea-4b99-883d-53e9b9796503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{e4772ab0-4106-4d7c-804b-3cff15ffd7e3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\AppState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AppStateManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GameState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Lagom.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\PauseState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\headers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_actor.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_actor_factory.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_actor_factory_imp.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_player_base.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_unit_glowsphere.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\bin\media\materials\scripts\newLighting.cg">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\LagomParticleManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StageSpawnManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SoundManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TinyXML\tinystr.h">
+      <Filter>Header Files\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TinyXML\tinyxml.h">
+      <Filter>Header Files\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TinyXML\TinyXMLResource.h">
+      <Filter>Header Files\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TinyXML\TinyXMLResourceManager.h">
+      <Filter>Header Files\TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuButton.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuEntry.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuManager.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuSlider.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SharedMenus.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuCheckbox.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\BillboardManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Gorilla\Gorilla.h">
+      <Filter>Header Files\Gorilla</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SharedFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuColourSelect.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MenuSpinSelect.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\XMLResourceData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\OgreGpuCommandBufferFlush.h">
+      <Filter>Header Files\FrameLimiter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_unit_obelisk.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\lagom_unit_blender.h">
+      <Filter>Header Files\GameStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TutorialCandy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\LagomInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\AndroidLogListener.h">
+      <Filter>Android\jni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\nv_util\nv_util.h">
+      <Filter>Android\jni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DemoApp.hpp">
+      <Filter>Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\AndroidArchive.h">
+      <Filter>Android\jni</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ant\jni\AndroidCeGuiLogger.h">
+      <Filter>Android\jni</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\AppStateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Lagom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\headers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_actor.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_actor_factory.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_player_base.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_unit_glowsphere.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\LagomParticleManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StageSpawnManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SoundManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\tinystr.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\tinyxml.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\tinyxmlerror.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\tinyxmlparser.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\TinyXMLResource.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TinyXML\TinyXMLResourceManager.cpp">
+      <Filter>Source Files\TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuButton.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuEntry.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuManager.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuSlider.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuCheckbox.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BillboardManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Gorilla\Gorilla.cpp">
+      <Filter>Source Files\Gorilla</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\PauseState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuSpinSelect.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MenuColourSelect.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\XMLResourceData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\OgreGpuCommandBufferFlush.cpp">
+      <Filter>Source Files\FrameLimiter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_unit_obelisk.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lagom_unit_blender.cpp">
+      <Filter>Source Files\GameStuff</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TutorialCandy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\LagomInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\AndroidLogListener.cpp">
+      <Filter>Android\jni</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\nv_util\nv_util.cpp">
+      <Filter>Android\jni</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\lagomJNI.cpp">
+      <Filter>Android\jni</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DemoApp.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\main.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\AndroidArchive.cpp">
+      <Filter>Android\jni</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ant\jni\AndroidCeGuiLogger.cpp">
+      <Filter>Android\jni</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\bin\media\materials\scripts\newUtils.cg">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\default.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\vsmCaster.cg">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\shadowCaster.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\ground.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\cubeUnit.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\playerBase.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\default.program">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\lagomLogo.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ClearGBuffer.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\Crytek.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\GBuffer.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowDepth.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowNormals.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowViewPos.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\SSAOPost.cg">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\SSAO.compositor">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\SSAOPost.compositor">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ClearGBuffer.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\Crytek.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\GBuffer.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowDepth.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowNormals.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\ShowViewPos.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\SSAO\SSAOPost.material">
+      <Filter>Materials\SSAO</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\particle.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\CubeUnit.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\PlayerBase.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\data.cfg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\Challenge.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\Game.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\media\gui\credits.layout">
+      <Filter>Source Files\Menu</Filter>
+    </None>
+    <None Include="..\..\bin\media\gui\highscores.layout">
+      <Filter>Source Files\Menu</Filter>
+    </None>
+    <None Include="..\..\bin\media\gui\highScoreEntry.layout">
+      <Filter>Source Files\Menu</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\blender.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\obelisk.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\Obelisk.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\media\units\Blender.xml">
+      <Filter>GameConfig</Filter>
+    </None>
+    <None Include="..\..\bin\media\materials\scripts\effects.material">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\bin\media\gui\tutorial.layout">
+      <Filter>Source Files\Menu</Filter>
+    </None>
+    <None Include="todo.txt" />
+    <None Include="..\..\bin\media\materials\scripts\fadeToBlack.overlay">
+      <Filter>Materials</Filter>
+    </None>
+    <None Include="..\..\ant\AndroidManifest.xml">
+      <Filter>Android</Filter>
+    </None>
+    <None Include="..\..\ant\build.xml">
+      <Filter>Android</Filter>
+    </None>
+    <None Include="..\..\ant\default.properties">
+      <Filter>Android</Filter>
+    </None>
+    <None Include="..\..\ant\local.properties">
+      <Filter>Android</Filter>
+    </None>
+    <None Include="..\..\ant\src\org\ogre\Lagom\LagomActivity.java">
+      <Filter>Android\Java</Filter>
+    </None>
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvActivity.java">
+      <Filter>Android\Java</Filter>
+    </None>
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvGLES2Activity.java">
+      <Filter>Android\Java</Filter>
+    </None>
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvGLESActivity.java">
+      <Filter>Android\Java</Filter>
+    </None>
+    <None Include="..\..\ant\src\com\nvidia\devtech\NvUtil.java">
+      <Filter>Android\Java</Filter>
+    </None>
+    <None Include="..\..\ant\res\values\strings.xml">
+      <Filter>Android</Filter>
+    </None>
+  </ItemGroup>
+</Project>

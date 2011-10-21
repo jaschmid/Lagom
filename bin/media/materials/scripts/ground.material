@@ -1,0 +1,7 @@
+import * from "default.material"
+
+material ground : default
+{
+	set_texture_alias DiffuseMap groundD.png
+	set_texture_alias NormalMap groundN.png
+}

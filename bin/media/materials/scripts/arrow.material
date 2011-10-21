@@ -1,0 +1,23 @@
+material Arrow
+ {
+	receive_shadows off
+	transparency_casts_shadows off
+   technique
+   {
+     pass
+     {
+       lighting off
+       scene_blend alpha_blend
+       depth_write off
+	   diffuse vertexcolour
+	   
+       texture_unit 
+       {
+		 texture arrow.png
+		 tex_address_mode clamp
+         colour_op_ex modulate src_diffuse src_texture
+         alpha_op_ex modulate src_diffuse src_texture
+       }
+     }
+   }
+ }

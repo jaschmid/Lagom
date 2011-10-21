@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<cubeUnit>
+  <MovementSpeed>10.0f</MovementSpeed>
+  <GroundOffset>1.0200000</GroundOffset>
+  <RotationSpeed>2.0f</RotationSpeed>
+  <CollisionRange>1.0200000</CollisionRange>
+  <Health>2000.0f</Health>
+  <HealthRegeneration>0.0f</HealthRegeneration>
+  <Energy>24000.0f</Energy>
+  <EnergyDischarge>-2400.0f</EnergyDischarge>
+  <EnergyDischargeSize>6.0f</EnergyDischargeSize>
+  <EnergyDischargeMaterial>NegativeExplosion</EnergyDischargeMaterial>
+  <DeathSound>smallExplosion.ogg</DeathSound>
+  <DeathParticleSize>3</DeathParticleSize>
+  <Mesh>cubeUnit.mesh</Mesh>
+  <Material>cubeUnit</Material>
+  <MeshScale>1.0f 1.0f 1.0f</MeshScale>
+  <PointValue>15.0f</PointValue>
+  <ScoreValue>150.0f</ScoreValue>
+  <ConstructionCooldown>200.0f</ConstructionCooldown>
+  <RetargetCooldown>400.0f</RetargetCooldown>
+  <DamagePerSecond>1000.0f</DamagePerSecond>
+  <AttackRange>5.0f</AttackRange>
+  <ChainHeight>10.0f</ChainHeight>
+  <ChainCount>10</ChainCount>
+  <ChainMaterialPositive>PositiveBeam</ChainMaterialPositive>
+  <ChainMaterialNegative>NegativeBeam</ChainMaterialNegative>
+  <ChainSound volume=".1f">chainBeam.ogg</ChainSound>
+</cubeUnit>

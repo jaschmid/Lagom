@@ -1,0 +1,7 @@
+import * from "default.material"
+
+material cubeUnit : default
+{
+	set_texture_alias DiffuseMap cubeUnitD.png
+	set_texture_alias NormalMap cubeUnitN.png
+}

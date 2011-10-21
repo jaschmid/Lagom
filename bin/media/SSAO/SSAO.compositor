@@ -1,0 +1,70 @@
+compositor SSAO/GBuffer
+{
+	technique
+	{
+		texture depth target_width target_height PF_FLOAT16_R chain_scope
+		texture occlusion target_width target_height PF_FLOAT16_R chain_scope
+
+		target depth
+		{
+			input none
+			
+			pass clear {}
+			
+			pass render_quad
+			{
+				material SSAO/ClearGBuffer
+			}			
+
+			pass render_scene 
+			{
+				material_scheme depth
+				first_render_queue 0
+				last_render_queue 90
+			}
+		}
+
+		target occlusion
+		{
+			input none
+			
+			pass render_quad
+			{
+				material SSAO/Crytek
+			}
+		}
+
+		target_output
+        {
+			input none
+
+			pass render_scene 
+			{
+				first_render_queue 0
+				last_render_queue 90
+			}
+			
+			pass render_quad
+			{
+                material SSAO/Post/SmartBoxFilter
+            }
+
+			pass render_scene 
+			{
+				first_render_queue 91
+				last_render_queue 105
+			}
+        }
+	}
+	technique
+	{
+		target_output
+        {
+			pass render_scene 
+			{
+				first_render_queue 0
+				last_render_queue 105
+			}
+        }
+	}
+}

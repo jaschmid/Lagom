@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<GUILayout>
+  <Window Type="Sunrise/SimpleFrame" Name="_newHighScoreRoot" >
+    <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+    <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.33,0},{0.75,0},{0.66,0}}" />
+
+    <Window Type="Sunrise/StaticText" Name="StaticText" >
+      <Property Name="HorzFormatting" Value="WordWrapCentred" />
+      <Property Name="Font" Value="SmallFont" />
+      <Property Name="Text" >NEW HIGHSCORE!</Property>
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.1,0},{0.1,0},{0.9,0},{0.3,0}}" />
+    </Window>
+
+    <Window Type="Sunrise/Editbox" Name="Editbox" >
+      <Property Name="HorzFormatting" Value="WordWrapCentred" />
+      <Property Name="Font" Value="MediumFont" />
+      <Property Name="MaxTextLength" Value="7" />
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.1,0},{0.4,0},{0.9,0},{0.6,0}}" />
+    </Window>
+
+    <Window Type="Sunrise/Button" Name="btnOk" >
+      <Property Name="Text" >OK</Property>
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.55,0},{0.7,0},{0.9,0},{0.9,0}}" />
+    </Window>
+    
+    <Window Type="Sunrise/Button" Name="btnCancel" >
+      <Property Name="Text" >CANCEL</Property>
+      <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+      <Property Name="UnifiedAreaRect" Value="{{0.1,0},{0.7,0},{0.45,0},{0.9,0}}" />
+    </Window>
+  </Window>
+</GUILayout>

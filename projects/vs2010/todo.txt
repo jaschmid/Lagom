@@ -1,0 +1,4 @@
+camera shakey shakey when things blow up
+light moving slowly to show time to next stage
+custom music loading
+make units not attack you from outside of view

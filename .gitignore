@@ -1,0 +1,17 @@
+
+ant/assets/
+ant/gen/org/ogre/Lagom/R.java
+ant/libs/armeabi/libfmodex.so
+ant/local.properties
+bin/cgD3D9.dll
+bin/cg.dll
+bin/cgGL.dll
+bin/data.zip
+bin/fmodex.dll
+bin/fmodex64.dll
+bin/fmodexL.dll
+bin/fmodexL64.dll
+bin/Lagom.xml
+projects/vs2010/Lagom.suo
+projects/vs2010/Lagom.sdf
+projects/codelite/OgreLogfile.log

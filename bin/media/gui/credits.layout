@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<GUILayout>
+  <Window Type="Sunrise/SimpleFrame">
+    <Window Type="Sunrise/StaticText" Name="creditsRoot">
+      <Property Name="Text" Value="
+[font='LargeFont']
+LAGOM
+credits
+
+[font='SmallFont']Production:
+[font='MediumFont']Jan Schmid
+
+[font='SmallFont']Game Design:
+[font='MediumFont']Jan Schmid
+
+[font='SmallFont']Programming:
+[font='MediumFont']Jan Schmid
+
+[font='SmallFont']Art:
+[font='MediumFont']Jan Schmid
+
+[font='SmallFont']Coffee Making:
+[font='MediumFont']Rebecca Narvesjo
+
+[font='SmallFont']Game Testing:
+[font='MediumFont']Rebecca Narvesjo
+Johanna Narvesjo
+Corinna Rid
+Students of TDDD23 2011
+
+[font='SmallFont']GUI Skin:
+[font='MediumFont']radical-dev
+
+[font='SmallFont']TinyXML Resource Loader:
+[font='MediumFont']xadhoom
+
+[font='SmallFont']Ogre Sound Manager:
+[font='MediumFont']Beauty, JustBoo, jacmoe
+
+[font='SmallFont']Knighthawks Font:
+[font='MediumFont']ck!
+
+[font='SmallFont']Special Thanks to:
+[font='MediumFont']jguerra
+[font='MediumFont']Simon Wallner
+
+[font='SmallFont']Flying Heaven
+[font='SmallFont']remixed
+[font='MediumFont']zircon
+[font='SmallFont']original
+[font='MediumFont']Alph Lyla, Yoko Shimomura
+
+[font='SmallFont']Vessel of the Void
+[font='SmallFont']remixed
+[font='MediumFont']zircon
+[font='SmallFont']original
+[font='MediumFont']Nobuo Uematsu
+
+[font='SmallFont']Above Reason
+[font='SmallFont']remixed
+[font='MediumFont']tefnek, zircon
+[font='SmallFont']original
+[font='MediumFont']Motohiro Kawashima, Yuzo Koshiro
+
+[font='SmallFont']Temple Trance
+[font='SmallFont']remixed
+[font='MediumFont']bLiNd
+[font='SmallFont']original
+[font='MediumFont']Akito Nakatsuka
+
+[font='SmallFont']The Bounty of a Brain
+[font='SmallFont']remixed
+[font='MediumFont']Big Giant Circles
+[font='SmallFont']original
+[font='MediumFont']Kenji Yamamoto (I), Minako Hamano
+
+[font='SmallFont']All Music from OverClocked ReMix
+(http://www.ocremix.org)
+
+[font='SmallFont']Sounds Effects:
+[font='MediumFont']benboncan
+[font='MediumFont']ejfortin
+[font='MediumFont']harri
+[font='MediumFont']hardpcm
+[font='MediumFont']jnr hacksaw
+[font='MediumFont']junggle
+[font='MediumFont']koops
+[font='MediumFont']lg
+[font='MediumFont']smcameron
+[font='MediumFont']SpeedY
+[font='MediumFont']MeowTek
+[font='SmallFont']All Sounds from Freesound
+(http://www.freesound.org)
+
+[font='SmallFont']3rd Party Libraries:
+[font='MediumFont']Ogre3D
+Gorilla for Ogre
+Bullet
+CEGUI
+FreeImage
+FreeType
+Lua
+ZLIB
+ZZIPLib
+LibPNG
+PCRE
+TinyXML
+FMOD Sound System
+Nvidia CG
+
+            
+              
+All Rights Reserved (c) 2011 
+Jan Schmid
+www.latticeandmesh.com
+          
+"/>
+      <Property Name="HorzFormatting" Value="WordWrapCentred" />
+      <Property Name="VertFormatting" Value="TopAligned" />
+      <Property Name="UnifiedAreaRect" Value="{{0.0,0},{0.0,0},{1.0,0},{1.0,0}}" />
+    </Window>
+    <Property Name="UnifiedAreaRect" Value="{{0.03,0},{0.5,0},{0.97,0},{0.97,0}}" />
+  </Window>
+</GUILayout>
